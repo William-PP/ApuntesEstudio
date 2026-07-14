@@ -1,4 +1,4 @@
-# Secret Scanning
+﻿# Secret Scanning
 
 ## QUÉ es
 
@@ -91,6 +91,6 @@ repos:
 | Tokens | `ghp_...`, `gho_...` |
 
 ## Referencia
-- [[00-Index]]
+- [[DevSecOps-Estudio/00-Index]]
 - [[CI-CD/GitHub-Actions]]
 - [[DevSecOps-Proyecto/Referencia/Glosario-DevSecOps]]

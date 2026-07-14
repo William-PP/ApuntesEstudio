@@ -1,4 +1,4 @@
-# Autenticación y Autorización
+﻿# Autenticación y Autorización
 
 > [!info] OWASP Top 10:2025
 > **A07:Authentication Failures** — Se mantiene en #7. Incluye autenticación débil, manejo de sesiones, y falta de MFA.
@@ -156,7 +156,7 @@ public IActionResult GetAll() { ... }
 8. Considera MFA (Multi-Factor Authentication) para cuentas sensibles
 
 ## Referencia
-- [[00-Index]]
+- [[DevSecOps-Estudio/00-Index]]
 - [[Patrones/Anti-Patrones-Seguridad]]
 - [[DevSecOps-Proyecto/Fase-0-Seguridad/JWT-Setup]]
 

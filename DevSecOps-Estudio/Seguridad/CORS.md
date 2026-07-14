@@ -1,4 +1,4 @@
-# CORS (Cross-Origin Resource Sharing)
+﻿# CORS (Cross-Origin Resource Sharing)
 
 > [!info] OWASP Top 10:2025
 > **A02:Security Misconfiguration** — CORS mal configurado cae en esta categoría. Subió de #5 a #2 en 2025.
@@ -113,7 +113,7 @@ policy.WithOrigins("https://tudominio.com")
 | `Credential is not supported` | `AllowCredentials` sin origen específico | No se puede usar `AllowAnyOrigin()` con credenciales |
 
 ## Referencia
-- [[00-Index]]
+- [[DevSecOps-Estudio/00-Index]]
 - [[Patrones/Anti-Patrones-Seguridad]]
 - [[DevSecOps-Proyecto/Fase-0-Seguridad/CORS-Config]]
 

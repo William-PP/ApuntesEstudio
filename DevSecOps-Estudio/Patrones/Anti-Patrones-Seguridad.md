@@ -1,4 +1,4 @@
-# Anti-Patrones de Seguridad
+﻿# Anti-Patrones de Seguridad
 
 ## QUÉ es
 
@@ -182,5 +182,5 @@ _logger.LogError(ex, "Error processing request for {UserId}", userId);
 ---
 
 ## Referencia
-- [[00-Index]]
+- [[DevSecOps-Estudio/00-Index]]
 - [[Patrones/Best-Practices]]

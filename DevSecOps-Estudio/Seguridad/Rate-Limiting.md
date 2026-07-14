@@ -1,4 +1,4 @@
-# Rate Limiting
+﻿# Rate Limiting
 
 > [!info] OWASP Top 10:2025
 > **A01:Broken Access Control** y **A07:Authentication Failures** — Rate limiting protege contra fuerza bruta (A07) y abuso de endpoints (A01).
@@ -132,7 +132,7 @@ Request → Rate Limiter → Controller → Response
 | Rate limit solo por IP | Usuarios detrás de NAT comparten IP | Considerar rate limit por API key o token |
 
 ## Referencia
-- [[00-Index]]
+- [[DevSecOps-Estudio/00-Index]]
 - [[Patrones/Anti-Patrones-Seguridad]]
 - [[DevSecOps-Proyecto/Fase-0-Seguridad/Rate-Limiting]]
 

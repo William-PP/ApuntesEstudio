@@ -1,4 +1,4 @@
-# Grafana — Dashboards
+﻿# Grafana — Dashboards
 
 ## QUÉ es
 
@@ -54,6 +54,6 @@ services:
 - Password: `admin` (cambiar en producción)
 
 ## Referencia
-- [[00-Index]]
+- [[DevSecOps-Estudio/00-Index]]
 - [[Monitoreo/Prometheus]]
 - [[Monitoreo/Structured-Logging]]

@@ -1,4 +1,4 @@
-# Structured Logging con Serilog
+﻿# Structured Logging con Serilog
 
 ## QUÉ es
 
@@ -72,6 +72,6 @@ builder.Host.UseSerilog((context, config) =>
 | `Fatal` | Error que tumba la aplicación |
 
 ## Referencia
-- [[00-Index]]
+- [[DevSecOps-Estudio/00-Index]]
 - [[Monitoreo/Prometheus]]
 - [[Monitoreo/Grafana]]

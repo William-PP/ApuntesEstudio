@@ -1,4 +1,4 @@
-# SAST (Static Application Security Testing)
+﻿# SAST (Static Application Security Testing)
 
 ## QUÉ es
 
@@ -62,6 +62,6 @@ Código fuente → Analizador → Reporte de vulnerabilidades
 | Semanal (scheduled) | ⚠️ Media |
 
 ## Referencia
-- [[00-Index]]
+- [[DevSecOps-Estudio/00-Index]]
 - [[CI-CD/GitHub-Actions]]
 - [[CI-CD/SCA]]

@@ -1,4 +1,4 @@
-# Identificación de Hosts
+﻿# Identificación de Hosts
 
 ## Vía DHCP
 
@@ -43,6 +43,6 @@ Si se revisa la red buscando **HTTP sin encriptar**, se puede inferir el sistema
 | Plataforma | `Win64; x64` | Arquitectura |
 
 ## Referencia
-- [[00-Index]]
+- [[Ciberseguridad/00-Index]]
 - [[Redes/Wireshark-TShark]]
 - [[Redes/Filtros-Wireshark]]

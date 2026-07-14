@@ -1,4 +1,4 @@
-# Filtros en Wireshark
+﻿# Filtros en Wireshark
 
 ## Filtros de protocolo
 
@@ -31,6 +31,6 @@
 | `dns.qry.type == 16` | Consultas TXT | TXT sospechoso |
 
 ## Referencia
-- [[00-Index]]
+- [[Ciberseguridad/00-Index]]
 - [[Redes/Wireshark-TShark]]
 - [[Redes/Comandos-TShark]]

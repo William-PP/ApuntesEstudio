@@ -1,4 +1,4 @@
-# DNS Sospechoso
+﻿# DNS Sospechoso
 
 ## Indicadores normales vs. sospechosos
 
@@ -114,6 +114,6 @@
 | Intervalos regulares | Ritmo constante | DNS + columna Time | ¿Es demasiado perfecto? |
 
 ## Referencia
-- [[00-Index]]
+- [[Ciberseguridad/00-Index]]
 - [[Redes/Wireshark-TShark]]
 - [[Active-Directory/Kerberos-SAM]]

@@ -1,4 +1,4 @@
-# Trivy — Escaneo de Seguridad
+﻿# Trivy — Escaneo de Seguridad
 
 ## QUÉ es
 
@@ -50,6 +50,6 @@ trivy fs .
 | Antes de deploy | ✅ En pipeline CD |
 
 ## Referencia
-- [[00-Index]]
+- [[DevSecOps-Estudio/00-Index]]
 - [[CI-CD/GitHub-Actions]]
 - [[DevSecOps-Proyecto/Fase-2-Docker/00-Resumen-Fase-2]]

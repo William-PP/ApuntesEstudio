@@ -86,4 +86,4 @@ Crear una aplicación funcional aplicando **DevSecOps** de principio a fin, docu
 - [[01-Arquitectura]]
 - [[02-Threat-Model]]
 - [[03-Decisiones-Técnicas]]
-- [[Glosario-DevSecOps]]
+- [[DevSecOps-Proyecto/Referencia/Glosario-DevSecOps]]

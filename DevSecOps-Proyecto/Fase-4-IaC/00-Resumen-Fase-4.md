@@ -177,4 +177,4 @@ terraform {
 
 ## Links Relacionados
 - [[00-Resumen-Fase-0]]
-- [[Glosario-DevSecOps]]
+- [[DevSecOps-Proyecto/Referencia/Glosario-DevSecOps]]

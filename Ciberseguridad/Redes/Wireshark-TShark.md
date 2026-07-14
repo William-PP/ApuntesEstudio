@@ -1,4 +1,4 @@
-# Wireshark y TShark
+﻿# Wireshark y TShark
 
 ## QUÉ es
 
@@ -62,7 +62,7 @@ Formato: `Fecha-ubicación-tipo-Actividad-Extensión`
 - [Video complementario (YouTube)](https://www.youtube.com/watch?v=6ebXr7nqr6o&list=PL9V4Zu3RroiX8O6ySYeYrjT1XiCURsmj2)
 
 ## Referencia
-- [[00-Index]]
+- [[Ciberseguridad/00-Index]]
 - [[Redes/TCP-Protocol]]
 - [[Redes/Filtros-Wireshark]]
 - [[Redes/Comandos-TShark]]

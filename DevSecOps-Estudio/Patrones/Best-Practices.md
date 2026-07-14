@@ -1,6 +1,8 @@
-# Best Practices — DevSecOps
+﻿# Best Practices — DevSecOps
 
-> [!info] Cómo usar esta nota Cada sección es un checklist accionable. Márcalo con `- [x]` en Obsidian a medida que lo implementes en un proyecto real. Piensa en esto como el "definition of done" de seguridad antes de llevar algo a producción. Al final de cada bloque hay una tabla con el **porqué** de cada práctica.
+> [!info] Cómo usar esta nota
+> Cada sección es un checklist accionable. Márcalo con `- [x]` en Obsidian a medida que lo implementes en un proyecto real. Piensa en esto como el "definition of done" de seguridad antes de llevar algo a producción.
+> Al final de cada bloque hay una tabla con el **porqué** de cada práctica.
 
 ## Código
 
@@ -14,6 +16,7 @@
 - [ ] Secrets fuera del código (User Secrets / env vars)
 - [ ] HTTPS habilitado
 - [ ] CORS configurado con origins específicos
+- [ ] Excepciones manejadas (no exponer stack traces al cliente)
 
 ### Por qué
 
@@ -29,6 +32,7 @@
 |Secrets fuera del código|Si el secret está en el repo, queda en el historial de Git para siempre, aunque lo borres después|Credenciales filtradas si el repo se hace público o se comparte|
 |HTTPS habilitado|Sin cifrado, cualquiera en la misma red puede leer el tráfico (contraseñas, tokens)|Man-in-the-middle, robo de sesión|
 |CORS con origins específicos|`*` permite que cualquier sitio web haga peticiones a tu API desde el navegador de un usuario logueado|CSRF-like: sitios maliciosos consumiendo tu API con la sesión de la víctima|
+|Excepciones manejadas|Un exception no controlado puede filtrar información sensible (stack trace, rutas internas, versiones de librerías)|Stack traces expuestos al cliente revelan arquitectura interna y posibles puntos de entrada (Security Misconfiguration, A02:2025)|
 
 ## Testing
 
@@ -55,6 +59,7 @@
 - [ ] No secrets en la imagen
 - [ ] Health check en Dockerfile
 - [ ] Trivy scan sin Critical/High
+- [ ] Imágenes firmadas (Docker Content Trust / Cosign)
 
 ### Por qué
 
@@ -67,6 +72,7 @@
 |No secrets en la imagen|Las capas de Docker persisten aunque borres el archivo en una capa posterior — el secret sigue ahí|Cualquiera con acceso a la imagen (`docker history`, registry) extrae el secret|
 |Health check en Dockerfile|Permite que el orquestador (Docker/K8s) detecte automáticamente un contenedor colgado|Contenedores "zombis" que responden pero no funcionan correctamente siguen recibiendo tráfico|
 |Trivy scan sin Critical/High|Detecta CVEs conocidas en el SO base y librerías antes de desplegar|Vulnerabilidades conocidas y ya parcheadas en versiones nuevas llegan a producción sin necesidad|
+|Imágenes firmadas|Garantiza que la imagen que despliegas es exactamente la que salió del pipeline, sin manipulación intermedia|Un atacante podría reemplazar imágenes en el registry si no hay verificación de integridad (Software or Data Integrity Failures, A08:2025)|
 
 ## CI/CD
 
@@ -137,16 +143,19 @@
 |Categoría OWASP|Dónde se cubre en este checklist|
 |---|---|
 |A01 Broken Access Control|Autorización por roles, RBAC en K8s|
-|A02 Security Misconfiguration|CORS, imagen base mínima, security context|
+|A02 Security Misconfiguration|CORS, imagen base mínima, security context, excepciones manejadas|
 |A03 Software Supply Chain Failures|SCA, Dependabot, Trivy scan|
 |A04 Cryptographic Failures|HTTPS/HSTS, secrets fuera del código|
 |A05 Injection|Parameterized queries, input validation|
+|A06 Vulnerable and Outdated Components|SCA, Dependabot, Trivy scan|
 |A07 Authentication Failures|Autenticación en endpoints, rate limiting|
+|A08 Software or Data Integrity Failures|Imágenes firmadas, health checks en Dockerfile|
 |A09 Logging and Alerting Failures|Structured/security logging, alertas|
+|A10 Mishandling of Exceptional Conditions|Excepciones manejadas, health checks|
 
 ---
 
 #devsecops #checklist #ciclo-de-vida-software #docker #kubernetes #cicd
 ### Referencia
-- [[00-Index]]
+- [[DevSecOps-Estudio/00-Index]]
 - [[Patrones/Anti-Patrones-Seguridad]]

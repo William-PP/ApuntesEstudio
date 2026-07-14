@@ -1,4 +1,4 @@
-# Kerberos y SAM
+﻿# Kerberos y SAM
 
 ## QUÉ es cada uno
 
@@ -22,6 +22,6 @@ El archivo local de Windows que actúa como "llavero" de cada equipo. Guarda usu
 | **AD (Dominio)** | Login exitoso | `kerberos.msg_type == 11` | AS-REP con campo ticket cifrado (AES-256) | Confirmar TGT obtenido |
 
 ## Referencia
-- [[00-Index]]
+- [[Ciberseguridad/00-Index]]
 - [[DNS/DNS-Sospechoso]]
 - [[Redes/Filtros-Wireshark]]

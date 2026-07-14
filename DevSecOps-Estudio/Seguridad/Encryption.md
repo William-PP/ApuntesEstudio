@@ -1,4 +1,4 @@
-# Encryption (Encriptación)
+﻿# Encryption (Encriptación)
 
 > [!info] OWASP Top 10:2025
 > **A04:Cryptographic Failures** — Baja de #2 a #4 pero sigue siendo crítica. Incluye encriptación débil, manejo incorrecto de claves, y falta de cifrado en tránsito/reposo.
@@ -102,7 +102,7 @@ app.UseHttpsRedirection();
 | Secret en el repo | Hardcoded en appsettings.json | Mover a User Secrets/env vars |
 
 ## Referencia
-- [[00-Index]]
+- [[DevSecOps-Estudio/00-Index]]
 - [[Seguridad/Autenticación-y-Autorización]]
 - [[Patrones/Anti-Patrones-Seguridad]]
 

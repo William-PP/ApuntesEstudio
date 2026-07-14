@@ -1,4 +1,4 @@
-# .NET — Health Checks
+﻿# .NET — Health Checks
 
 ## QUÉ son
 
@@ -56,6 +56,6 @@ app.MapHealthChecks("/health/live", new HealthCheckOptions
 ```
 
 ## Referencia
-- [[00-Index]]
+- [[DevSecOps-Estudio/00-Index]]
 - [[Kubernetes/Fundamentos]]
 - [[DevSecOps-Proyecto/Fase-0-Seguridad/Health-Checks]]

@@ -1,4 +1,4 @@
-# DAST — Dynamic Application Security Testing (Detallado)
+﻿# DAST — Dynamic Application Security Testing (Detallado)
 
 ## QUÉ es
 
@@ -99,6 +99,6 @@ docker run -t ghcr.io/zaproxy/zaproxy:stable zap-baseline.py \
 | Falsos positivos en configs | Revisar manualmente |
 
 ## Referencia
-- [[00-Index]]
+- [[DevSecOps-Estudio/00-Index]]
 - [[Introduccion-AppSec-DevSecOps]]
 - [[CI-CD/GitHub-Actions]]

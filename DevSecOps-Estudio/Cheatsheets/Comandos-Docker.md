@@ -1,4 +1,4 @@
-# Cheatsheet — Docker
+﻿# Cheatsheet — Docker
 
 ## Comandos esenciales
 
@@ -50,5 +50,5 @@ docker system prune -a              # Limpiar todo
 ```
 
 ## Referencia
-- [[00-Index]]
+- [[DevSecOps-Estudio/00-Index]]
 - [[Docker/Fundamentos]]

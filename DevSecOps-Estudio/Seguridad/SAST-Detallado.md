@@ -1,4 +1,4 @@
-# SAST — Static Application Security Testing (Detallado)
+﻿# SAST — Static Application Security Testing (Detallado)
 
 ## QUÉ es
 
@@ -112,6 +112,6 @@ Si un Source llega a un Sink sin sanitización → VULNERABILIDAD
 4. **Revisar manualmente** — SAST no es perfecto, always verify
 
 ## Referencia
-- [[00-Index]]
+- [[DevSecOps-Estudio/00-Index]]
 - [[Introduccion-AppSec-DevSecOps]]
 - [[CI-CD/SAST]]

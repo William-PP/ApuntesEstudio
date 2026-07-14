@@ -1,4 +1,4 @@
-# TCP — Protocolo y Análisis
+﻿# TCP — Protocolo y Análisis
 
 ## Three-Way Handshake
 
@@ -48,6 +48,6 @@ Cierra una conexión de forma abrupta. Puede indicar:
 > Estas interpretaciones **no son flags TCP reales** — son análisis que hace Wireshark sobre el flujo.
 
 ## Referencia
-- [[00-Index]]
+- [[Ciberseguridad/00-Index]]
 - [[Redes/Wireshark-TShark]]
 - [[Redes/Filtros-Wireshark]]

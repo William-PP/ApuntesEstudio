@@ -1,4 +1,4 @@
-# Prometheus — Metrics
+﻿# Prometheus — Metrics
 
 ## QUÉ es
 
@@ -35,6 +35,6 @@ app.MapMetrics("/metrics");
 | Memory > 80% | 🟡 Warning | Medio |
 
 ## Referencia
-- [[00-Index]]
+- [[DevSecOps-Estudio/00-Index]]
 - [[Monitoreo/Structured-Logging]]
 - [[Monitoreo/Grafana]]

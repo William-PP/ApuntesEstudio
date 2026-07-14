@@ -1,4 +1,4 @@
-# .NET — User Secrets
+﻿# .NET — User Secrets
 
 ## QUÉ es
 
@@ -50,5 +50,5 @@ Jwt:Key                   →  Jwt__Key
 Los `:` se convierten en `__` (doble underscore).
 
 ## Referencia
-- [[00-Index]]
+- [[DevSecOps-Estudio/00-Index]]
 - [[DevSecOps-Proyecto/Fase-0-Seguridad/Secrets-Management]]

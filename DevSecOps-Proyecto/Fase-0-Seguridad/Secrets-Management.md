@@ -115,5 +115,5 @@ appsettings.*.local.json
 
 ## Links Relacionados
 - [[00-Resumen-Fase-0]]
-- [[Health-Checks]]
+- [[DevSecOps-Estudio/.NET/Health-Checks]]
 - [[JWT-Setup]]

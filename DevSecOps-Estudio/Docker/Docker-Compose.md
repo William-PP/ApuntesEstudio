@@ -1,4 +1,4 @@
-# Docker Compose
+﻿# Docker Compose
 
 ## QUÉ es
 
@@ -74,5 +74,5 @@ docker-compose ps
 - NO para producción (usar K8s)
 
 ## Referencia
-- [[00-Index]]
+- [[DevSecOps-Estudio/00-Index]]
 - [[Docker/Fundamentos]]

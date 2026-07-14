@@ -1,4 +1,4 @@
-# Kubernetes — Network Policies
+﻿# Kubernetes — Network Policies
 
 ## QUÉ es
 
@@ -73,6 +73,6 @@ spec:
 - Cuando necesitas zero trust
 
 ## Referencia
-- [[00-Index]]
+- [[DevSecOps-Estudio/00-Index]]
 - [[Kubernetes/Security-Context]]
 - [[Kubernetes/Fundamentos]]

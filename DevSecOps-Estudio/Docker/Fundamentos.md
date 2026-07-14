@@ -1,4 +1,4 @@
-# Docker — Fundamentos
+﻿# Docker — Fundamentos
 
 ## QUÉ es
 
@@ -82,6 +82,6 @@ ENTRYPOINT ["dotnet", "MyApp.dll"]
 | Monolito pequeño | ⚠️ Opcional |
 
 ## Referencia
-- [[00-Index]]
+- [[DevSecOps-Estudio/00-Index]]
 - [[Docker/Dockerfile-Seguro]]
 - [[Docker/Docker-Compose]]

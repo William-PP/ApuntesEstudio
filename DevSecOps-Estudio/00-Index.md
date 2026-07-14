@@ -7,7 +7,7 @@
 
 | #   | Nota                                       | QUÉ aprenderás                            | Tiempo |
 | --- | ------------------------------------------ | ----------------------------------------- | ------ |
-| 1   | [[Introduccion-AppSec-DevSecOps]]       | Qué es AppSec, Shift Left, flujo completo | 15 min |
+| 1   | [[Introduccion-AppSec-DevSecOps]]          | Qué es AppSec, Shift Left, flujo completo | 15 min |
 | 2   | [[Seguridad/Bases-Datos-Vulnerabilidades]] | CVE, NVD, CVSS, OWASP Top 10:2025, CWE    | 20 min |
 | 3   | [[Patrones/Best-Practices]]                | Checklist de cosas que SIEMPRE hacer      | 10 min |
 | 4   | [[Patrones/Anti-Patrones-Seguridad]]       | Qué NUNCA hacer (10 errores comunes)      | 15 min |

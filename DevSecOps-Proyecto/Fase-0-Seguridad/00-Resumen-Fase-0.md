@@ -127,4 +127,4 @@ dotnet user-secrets list --project TuProyecto.API
 ## Links Relacionados
 - [[00-Visión-General]]
 - [[02-Threat-Model]]
-- [[Glosario-DevSecOps]]
+- [[DevSecOps-Proyecto/Referencia/Glosario-DevSecOps]]

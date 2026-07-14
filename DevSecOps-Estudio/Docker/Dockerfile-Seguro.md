@@ -1,4 +1,4 @@
-# Dockerfile Seguro
+﻿# Dockerfile Seguro
 
 ## QUÉ es
 
@@ -83,6 +83,6 @@ ENTRYPOINT ["dotnet", "TuProyecto.API.dll"]
 | Secrets en imagen | Hardcoded en Dockerfile | Usar env vars o secrets |
 
 ## Referencia
-- [[00-Index]]
+- [[DevSecOps-Estudio/00-Index]]
 - [[Docker/Fundamentos]]
 - [[Docker/Trivy]]

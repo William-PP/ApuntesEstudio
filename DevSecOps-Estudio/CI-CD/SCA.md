@@ -1,4 +1,4 @@
-# SCA (Software Composition Analysis)
+﻿# SCA (Software Composition Analysis)
 
 ## QUÉ es
 
@@ -72,6 +72,6 @@ updates:
 | Semanal | Dependabot schedule |
 
 ## Referencia
-- [[00-Index]]
+- [[DevSecOps-Estudio/00-Index]]
 - [[CI-CD/SAST]]
 - [[CI-CD/GitHub-Actions]]

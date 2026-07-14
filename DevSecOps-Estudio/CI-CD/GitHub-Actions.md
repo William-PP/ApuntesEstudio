@@ -1,4 +1,4 @@
-# GitHub Actions — CI/CD
+﻿# GitHub Actions — CI/CD
 
 ## QUÉ es
 
@@ -65,7 +65,7 @@ jobs:
 ```
 
 ## Referencia
-- [[00-Index]]
+- [[DevSecOps-Estudio/00-Index]]
 - [[CI-CD/SAST]]
 - [[CI-CD/SCA]]
 - [[DevSecOps-Proyecto/Fase-3-CICD/00-Resumen-Fase-3]]

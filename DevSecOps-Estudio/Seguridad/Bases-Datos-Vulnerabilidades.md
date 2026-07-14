@@ -1,4 +1,4 @@
-# Bases de Datos de Vulnerabilidades
+﻿# Bases de Datos de Vulnerabilidades
 
 ## QUÉ son
 
@@ -136,7 +136,7 @@ Herramienta reporta: ⚠️ Vulnerabilidad encontrada
 | NuGet | nuget.org/packages | Vulnerabilidades de .NET |
 
 ## Referencia
-- [[00-Index]]
+- [[DevSecOps-Estudio/00-Index]]
 - [[Introduccion-AppSec-DevSecOps]]
 - [[CI-CD/SCA]]
 

@@ -1,4 +1,4 @@
-# Troubleshooting — Errores Comunes
+﻿# Troubleshooting — Errores Comunes
 
 ## .NET
 
@@ -118,6 +118,6 @@ kubectl describe pod pod-name
 ---
 
 ## Referencia
-- [[00-Index]]
+- [[DevSecOps-Estudio/00-Index]]
 - [[Cheatsheets/Comandos-Docker]]
 - [[Cheatsheets/Comandos-Kubernetes]]

@@ -1,4 +1,4 @@
-# Introducción a Seguridad de Aplicaciones y Automatización DevSecOps
+﻿# Introducción a Seguridad de Aplicaciones y Automatización DevSecOps
 
 ## 1. Contexto y utilidad
 
@@ -254,6 +254,6 @@ Este enfoque permite reducir significativamente el riesgo de incidentes de segur
 #seguridad #devsecops #appsec #ciclo-de-vida-software
 
 ## Referencia
-- [[00-Index]]
+- [[DevSecOps-Estudio/00-Index]]
 - [[02-Threat-Model]]
 - [[Patrones/Best-Practices]]
