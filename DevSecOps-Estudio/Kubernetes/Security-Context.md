@@ -1,4 +1,4 @@
-﻿# Kubernetes — Security Context
+# Kubernetes — Security Context
 
 ## QUÉ es
 
@@ -77,5 +77,5 @@ kubectl describe pod mi-app | grep -A 5 "Security Context"
 
 ## Referencia
 - [[DevSecOps-Estudio/00-Index]]
-- [[Kubernetes/Fundamentos]]
-- [[Kubernetes/Network-Policies]]
+
+#config #devsecops #containers #security-context #k8s #api #estudio #kubernetes #k8s #deploy

@@ -1,4 +1,4 @@
-﻿# Grafana — Dashboards
+# Grafana — Dashboards
 
 ## QUÉ es
 
@@ -55,5 +55,5 @@ services:
 
 ## Referencia
 - [[DevSecOps-Estudio/00-Index]]
-- [[Monitoreo/Prometheus]]
-- [[Monitoreo/Structured-Logging]]
+
+#config #devsecops #api #estudio #logging #grafana #dashboard #monitoreo #monitoring

@@ -1,4 +1,4 @@
-﻿# Introducción a Seguridad de Aplicaciones y Automatización DevSecOps
+# Introducción a Seguridad de Aplicaciones y Automatización DevSecOps
 
 ## 1. Contexto y utilidad
 
@@ -8,11 +8,11 @@ La seguridad de aplicaciones (**Application Security** o **AppSec**) es la disci
 
 Tradicionalmente, las pruebas de seguridad se realizaban al final del desarrollo o durante auditorías. Este enfoque generaba:
 
-| Problema | Consecuencia |
-|----------|-------------|
-| Vulnerabilidades detectadas demasiado tarde | Arreglos complejos y costosos |
-| Costo de corrección alto | Presupuesto y tiempo extra |
-| Errores llegaban a producción | Brechas de seguridad, pérdida de confianza |
+| Problema                                    | Consecuencia                               |
+| ------------------------------------------- | ------------------------------------------ |
+| Vulnerabilidades detectadas demasiado tarde | Arreglos complejos y costosos              |
+| Costo de corrección alto                    | Presupuesto y tiempo extra                 |
+| Errores llegaban a producción               | Brechas de seguridad, pérdida de confianza |
 
 ### La solución: Shift-Left Security
 
@@ -30,13 +30,13 @@ SHIFT LEFT:
 
 En este modelo, las verificaciones de seguridad se ejecutan automáticamente cuando:
 
-| Momento | Herramienta típica |
-|---------|-------------------|
-| Se **escribe código** | SAST (análisis estático) |
-| Se realiza un **commit** | Secret scanning |
-| Se **compila** el proyecto | SAST + SCA |
-| Se **ejecuta** la aplicación | DAST (análisis dinámico) |
-| Se **deploya** | Container scan + IaC scan |
+| Momento                      | Herramienta típica        |
+| ---------------------------- | ------------------------- |
+| Se **escribe código**        | SAST (análisis estático)  |
+| Se realiza un **commit**     | Secret scanning           |
+| Se **compila** el proyecto   | SAST + SCA                |
+| Se **ejecuta** la aplicación | DAST (análisis dinámico)  |
+| Se **deploya**               | Container scan + IaC scan |
 
 > **Regla mental:** Mientras más temprano en el SDLC detectas un bug de seguridad, más barato es arreglarlo. Un fallo encontrado en código cuesta centavos; el mismo fallo en producción puede costar miles de dólares y reputación.
 
@@ -133,12 +133,12 @@ Además del código, es necesario revisar la infraestructura donde se ejecuta:
 
 Las herramientas de seguridad utilizan bases de datos públicas para identificar riesgos conocidos:
 
-| Base | Función |
-|------|---------|
-| **CVE** | Identificador estándar de vulnerabilidades |
-| **NVD** (National Vulnerability Database) | Base oficial mantenida por el gobierno de EE.UU. |
-| **OWASP** | Guías de seguridad y lista OWASP Top 10 |
-| **MITRE** | Catálogo de debilidades de software (CWE — Common Weakness Enumeration) |
+| Base                                      | Función                                                                 |
+| ----------------------------------------- | ----------------------------------------------------------------------- |
+| **CVE**                                   | Identificador estándar de vulnerabilidades                              |
+| **NVD** (National Vulnerability Database) | Base oficial mantenida por el gobierno de EE.UU.                        |
+| **OWASP**                                 | Guías de seguridad y lista OWASP Top 10                                 |
+| **MITRE**                                 | Catálogo de debilidades de software (CWE — Common Weakness Enumeration) |
 
 Estas bases se actualizan constantemente con nuevas vulnerabilidades descubiertas.
 
@@ -193,11 +193,11 @@ Developer commit
 
 ### Herramientas de CI/CD para automatizar
 
-| Plataforma | Tipo |
-|-----------|------|
-| **GitHub Actions** | Integrado en GitHub |
-| **GitLab CI/CD** | Integrado en GitLab |
-| **Jenkins** | Self-hosted, muy flexible |
+| Plataforma         | Tipo                      |
+| ------------------ | ------------------------- |
+| **GitHub Actions** | Integrado en GitHub       |
+| **GitLab CI/CD**   | Integrado en GitLab       |
+| **Jenkins**        | Self-hosted, muy flexible |
 
 ---
 
@@ -205,11 +205,11 @@ Developer commit
 
 Aunque las herramientas automatizadas son fundamentales, presentan limitaciones:
 
-| Limitación | Ejemplo |
-|-----------|---------|
-| **Falsos positivos** | Alerta de vulnerabilidad que no es real |
+| Limitación                       | Ejemplo                                                     |
+| -------------------------------- | ----------------------------------------------------------- |
+| **Falsos positivos**             | Alerta de vulnerabilidad que no es real                     |
 | **No detecta lógica de negocio** | Un bypass de regla de negocio no se detecta automáticamente |
-| **Requiere mantenimiento** | Reglas deben actualizarse |
+| **Requiere mantenimiento**       | Reglas deben actualizarse                                   |
 
 ### Complementos necesarios
 
@@ -235,13 +235,13 @@ Este enfoque permite reducir significativamente el riesgo de incidentes de segur
 
 ## Mis herramientas (referencia rápida)
 
-| Categoría | Herramientas |
-|-----------|-------------|
-| **SAST** | SonarQube (SonarLint para IDE), Semgrep |
-| **SCA** | Snyk, OWASP Dependency-Check |
-| **DAST** | OWASP ZAP, Burp Suite Community Edition |
-| **Contenedores** | Trivy, Docker Scout |
-| **Infraestructura** | Nmap, OpenVAS |
+| Categoría           | Herramientas                            |
+| ------------------- | --------------------------------------- |
+| **SAST**            | SonarQube (SonarLint para IDE), Semgrep |
+| **SCA**             | Snyk, OWASP Dependency-Check            |
+| **DAST**            | OWASP ZAP, Burp Suite Community Edition |
+| **Contenedores**    | Trivy, Docker Scout                     |
+| **Infraestructura** | Nmap, OpenVAS                           |
 
 > **Por qué estas elecciones:**
 > - OWASP ZAP y Trivy son gratuitas, open source, y fáciles de integrar en GitHub Actions — buena opción para empezar y para portafolio propio.

@@ -61,12 +61,12 @@
 
 ## Principios de Seguridad por Capa
 
-| Capa | Amenaza principal | Mitigación |
-|------|------------------|------------|
-| API | Inyección, XSS, CSRF | Input validation, CORS, Rate limiting |
-| Dominio | Lógica business bypass | Validaciones en service layer |
-| Acceso a datos | SQL Injection | EF Core (parameterized queries) |
-| BD | Acceso no autorizado | Connection string seguro, mínimo privilegios |
+| Capa           | Amenaza principal      | Mitigación                                   |
+| -------------- | ---------------------- | -------------------------------------------- |
+| API            | Inyección, XSS, CSRF   | Input validation, CORS, Rate limiting        |
+| Dominio        | Lógica business bypass | Validaciones en service layer                |
+| Acceso a datos | SQL Injection          | EF Core (parameterized queries)              |
+| BD             | Acceso no autorizado   | Connection string seguro, mínimo privilegios |
 
 ## Tech Stack Detallado
 <!-- Completa con tu stack real -->
@@ -96,3 +96,8 @@
 - [[00-Visión-General]]
 - [[02-Threat-Model]]
 - [[03-Decisiones-Técnicas]]
+
+## Referencia
+- [[DevSecOps-Proyecto/00-Visión-General]]
+
+#devsecops #cloud #proyecto #database #api

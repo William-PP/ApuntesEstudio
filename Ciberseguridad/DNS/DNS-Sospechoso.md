@@ -1,4 +1,4 @@
-﻿# DNS Sospechoso
+# DNS Sospechoso
 
 ## Indicadores normales vs. sospechosos
 
@@ -115,5 +115,5 @@
 
 ## Referencia
 - [[Ciberseguridad/00-Index]]
-- [[Redes/Wireshark-TShark]]
-- [[Active-Directory/Kerberos-SAM]]
+
+#dns #resolucion-nombres #ciberseguridad #dns #git

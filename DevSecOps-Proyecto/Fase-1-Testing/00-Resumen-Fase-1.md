@@ -190,3 +190,9 @@ dotnet test /p:CollectCoverage=true
 ## Links Relacionados
 - [[00-Resumen-Fase-0]]
 - [[DevSecOps-Proyecto/Referencia/Glosario-DevSecOps]]
+
+## Referencia
+- [[DevSecOps-Proyecto/00-Visión-General]]
+- [[DevSecOps-Estudio/00-Index]]
+
+#devsecops #containers #database #proyecto #api #testing #fase-1

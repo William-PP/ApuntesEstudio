@@ -1,4 +1,4 @@
-﻿# Best Practices — DevSecOps
+# Best Practices — DevSecOps
 
 > [!info] Cómo usar esta nota
 > Cada sección es un checklist accionable. Márcalo con `- [x]` en Obsidian a medida que lo implementes en un proyecto real. Piensa en esto como el "definition of done" de seguridad antes de llevar algo a producción.

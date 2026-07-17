@@ -1,4 +1,4 @@
-﻿# Dockerfile Seguro
+# Dockerfile Seguro
 
 ## QUÉ es
 
@@ -84,5 +84,5 @@ ENTRYPOINT ["dotnet", "TuProyecto.API.dll"]
 
 ## Referencia
 - [[DevSecOps-Estudio/00-Index]]
-- [[Docker/Fundamentos]]
-- [[Docker/Trivy]]
+
+#config #devsecops #dockerfile #seguridad #api #estudio #docker #git #vulnerabilidades #secrets

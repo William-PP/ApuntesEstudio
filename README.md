@@ -27,3 +27,10 @@ Plantillas aplicadas al proyecto SportsLeague (.NET 10 + EF Core + SQL Server), 
 ## Reglas del repo
 
 Ver `AGENTS.md` para las reglas que siguen las herramientas que trabajan en este repo.
+
+## Referencia
+- [[Ciberseguridad/00-Index]]
+- [[DevSecOps-Estudio/00-Index]]
+- [[DevSecOps-Proyecto/00-Visión-General]]
+
+#readme #documentacion #database #git #logging #secrets #testing #monitoring

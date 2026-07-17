@@ -32,10 +32,10 @@
 
 ### Nivel 3: Testing Automatizado
 
-| # | Nota | QUÉ aprenderás | Tiempo |
-|---|------|---------------|--------|
-| 10 | [[.NET/User-Secrets]] | Gestión de secretos en desarrollo | 10 min |
-| 11 | [[.NET/Health-Checks]] | Liveness, Readiness, config .NET | 10 min |
+| #   | Nota                   | QUÉ aprenderás                    | Tiempo |
+| --- | ---------------------- | --------------------------------- | ------ |
+| 10  | [[.NET/User-Secrets]]  | Gestión de secretos en desarrollo | 10 min |
+| 11  | [[.NET/Health-Checks]] | Liveness, Readiness, config .NET  | 10 min |
 
 > **Prerequisito para:** Docker.
 
@@ -284,3 +284,8 @@ Ir directamente a: [[Cheatsheets/Comandos-Docker]] | [[Cheatsheets/Comandos-Kube
 ## Links Relacionados
 - [[DevSecOps-Proyecto/00-Visión-General]]
 - [[Ciberseguridad/00-Index]]
+
+## Referencia
+- [[DevSecOps-Estudio/00-Index]]
+
+#config #devsecops #containers #owasp #database #estudio #git #logging #vulnerabilidades #secrets #testing #index #navegacion #deploy #monitoring #checklist

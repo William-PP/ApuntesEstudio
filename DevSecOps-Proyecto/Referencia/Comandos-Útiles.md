@@ -200,3 +200,10 @@ checkov -d . --check CKV_AZURE_1
 ## Links Relacionados
 - [[00-Resumen-Fase-0]]
 - [[DevSecOps-Proyecto/Referencia/Glosario-DevSecOps]]
+
+## Referencia
+- [[DevSecOps-Proyecto/00-Visión-General]]
+- [[DevSecOps-Proyecto/Referencia/Glosario-DevSecOps]]
+- [[DevSecOps-Proyecto/Referencia/Vulnerabilidades-Encontradas]]
+
+#debug #config #comandos #devsecops #cloud #database #proyecto #api #git #logging #secrets #referencia #deploy

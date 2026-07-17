@@ -106,3 +106,12 @@ public async Task<IActionResult> Login([FromBody] LoginDTO dto)
 ## Links Relacionados
 - [[00-Resumen-Fase-0]]
 - [[DevSecOps-Proyecto/Referencia/Glosario-DevSecOps]]
+
+## Referencia
+- [[DevSecOps-Proyecto/00-Visión-General]]
+- [[DevSecOps-Estudio/00-Index]]
+- [[DevSecOps-Proyecto/Fase-0-Seguridad/Health-Checks]]
+- [[DevSecOps-Proyecto/Fase-0-Seguridad/Rate-Limiting]]
+- [[DevSecOps-Proyecto/Fase-0-Seguridad/CORS-Config]]
+
+#config #seguridad #devsecops #proyecto #api #secrets #fase-0

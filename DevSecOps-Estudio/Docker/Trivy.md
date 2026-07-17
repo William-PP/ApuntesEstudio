@@ -1,4 +1,4 @@
-﻿# Trivy — Escaneo de Seguridad
+# Trivy — Escaneo de Seguridad
 
 ## QUÉ es
 
@@ -51,5 +51,5 @@ trivy fs .
 
 ## Referencia
 - [[DevSecOps-Estudio/00-Index]]
-- [[CI-CD/GitHub-Actions]]
-- [[DevSecOps-Proyecto/Fase-2-Docker/00-Resumen-Fase-2]]
+
+#config #devsecops #trivy #scanner #api #estudio #docker #git #vulnerabilidades #secrets #deploy

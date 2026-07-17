@@ -128,3 +128,12 @@ dotnet user-secrets list --project TuProyecto.API
 - [[00-Visión-General]]
 - [[02-Threat-Model]]
 - [[DevSecOps-Proyecto/Referencia/Glosario-DevSecOps]]
+
+## Referencia
+- [[DevSecOps-Proyecto/00-Visión-General]]
+- [[DevSecOps-Estudio/00-Index]]
+- [[DevSecOps-Proyecto/Fase-0-Seguridad/Health-Checks]]
+- [[DevSecOps-Proyecto/Fase-0-Seguridad/Rate-Limiting]]
+- [[DevSecOps-Proyecto/Fase-0-Seguridad/JWT-Setup]]
+
+#config #seguridad #devsecops #database #proyecto #api #git #secrets #fase-0 #checklist

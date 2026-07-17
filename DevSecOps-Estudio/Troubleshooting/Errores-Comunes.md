@@ -1,4 +1,4 @@
-﻿# Troubleshooting — Errores Comunes
+# Troubleshooting — Errores Comunes
 
 ## .NET
 
@@ -119,5 +119,5 @@ kubectl describe pod pod-name
 
 ## Referencia
 - [[DevSecOps-Estudio/00-Index]]
-- [[Cheatsheets/Comandos-Docker]]
-- [[Cheatsheets/Comandos-Kubernetes]]
+
+#config #devsecops #database #api #estudio #git #logging #errores #troubleshooting #secrets #troubleshooting

@@ -1,22 +1,22 @@
 # Visión General del Proyecto
 
 ## ¿Qué es este proyecto?
-<!-- Describe brevemente de qué trata tu aplicación -->
+Mi projecto es de gestion deportiva de judo la idea es facilitar a los entrenadores y monitores del deporte  el seguimiento de los practicantes de judo. Desde la gestion de torneos, ctegorias, modalidades, torneos y resultados
 [Tu proyecto aquí]
 
 ## Objetivo
 Crear una aplicación funcional aplicando **DevSecOps** de principio a fin, documentando cada fase del proceso.
 
 ## Stack Tecnológico
-| Capa | Tecnología | Justificación |
-|------|-----------|---------------|
-| Lenguaje | | |
-| Framework | | |
-| Base de datos | | |
-| Container | | |
-| CI/CD | | |
-| Cloud | | |
-| Monitoreo | | |
+| Capa          | Tecnología | Justificación                                                                                                                              |
+| ------------- | ---------- | ------------------------------------------------------------------------------------------------------------------------------------------ |
+| Lenguaje      | C#         | Ahora mismo es por el conocimiento del lenguaje mas no por un tenicismo como tal aunque en el futuro tengo pensado indagar mas al respecto |
+| Framework     |            | . net 10                                                                                                                                   |
+| Base de datos |            | sql                                                                                                                                        |
+| Container     |            |                                                                                                                                            |
+| CI/CD         |            |                                                                                                                                            |
+| Cloud         |            |                                                                                                                                            |
+| Monitoreo     |            |                                                                                                                                            |
 
 ## Fases del Proyecto
 
@@ -87,3 +87,8 @@ Crear una aplicación funcional aplicando **DevSecOps** de principio a fin, docu
 - [[02-Threat-Model]]
 - [[03-Decisiones-Técnicas]]
 - [[DevSecOps-Proyecto/Referencia/Glosario-DevSecOps]]
+
+## Referencia
+- [[DevSecOps-Proyecto/00-Visión-General]]
+
+#config #devsecops #containers #cloud #database #proyecto #git #logging #secrets #testing #deploy #monitoring

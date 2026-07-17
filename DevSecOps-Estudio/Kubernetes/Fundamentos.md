@@ -1,4 +1,4 @@
-﻿# Kubernetes — Fundamentos
+# Kubernetes — Fundamentos
 
 ## QUÉ es
 
@@ -77,5 +77,5 @@ Kubernetes (K8s) es una plataforma de **orquestación de contenedores** que auto
 
 ## Referencia
 - [[DevSecOps-Estudio/00-Index]]
-- [[Kubernetes/Security-Context]]
-- [[Kubernetes/Network-Policies]]
+
+#config #devsecops #containers #cloud #api #estudio #microservices #kubernetes #fundamentos #k8s #deploy

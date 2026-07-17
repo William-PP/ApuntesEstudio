@@ -1,4 +1,4 @@
-﻿# Kubernetes — Network Policies
+# Kubernetes — Network Policies
 
 ## QUÉ es
 
@@ -74,5 +74,5 @@ spec:
 
 ## Referencia
 - [[DevSecOps-Estudio/00-Index]]
-- [[Kubernetes/Security-Context]]
-- [[Kubernetes/Fundamentos]]
+
+#devsecops #network-policies #k8s #database #api #estudio #microservices #kubernetes #k8s

@@ -1,4 +1,4 @@
-﻿# GitHub Actions — CI/CD
+# GitHub Actions — CI/CD
 
 ## QUÉ es
 
@@ -66,6 +66,5 @@ jobs:
 
 ## Referencia
 - [[DevSecOps-Estudio/00-Index]]
-- [[CI-CD/SAST]]
-- [[CI-CD/SCA]]
-- [[DevSecOps-Proyecto/Fase-3-CICD/00-Resumen-Fase-3]]
+
+#github-actions #ci-cd #config #ci-cd #devsecops #api #estudio #git #vulnerabilidades #github-actions #deploy

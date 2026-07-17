@@ -117,3 +117,12 @@ appsettings.*.local.json
 - [[00-Resumen-Fase-0]]
 - [[DevSecOps-Estudio/.NET/Health-Checks]]
 - [[JWT-Setup]]
+
+## Referencia
+- [[DevSecOps-Proyecto/00-Visión-General]]
+- [[DevSecOps-Estudio/00-Index]]
+- [[DevSecOps-Proyecto/Fase-0-Seguridad/Health-Checks]]
+- [[DevSecOps-Proyecto/Fase-0-Seguridad/Rate-Limiting]]
+- [[DevSecOps-Proyecto/Fase-0-Seguridad/JWT-Setup]]
+
+#config #seguridad #devsecops #cloud #database #proyecto #api #git #secrets #fase-0 #checklist

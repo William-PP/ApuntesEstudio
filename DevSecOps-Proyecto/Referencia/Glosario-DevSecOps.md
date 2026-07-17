@@ -229,3 +229,10 @@ Modelo de seguridad que nunca confía, siempre verifica — ni siquiera dentro d
 
 ## Links Relacionados
 - [[00-Visión-General]]
+
+## Referencia
+- [[DevSecOps-Proyecto/00-Visión-General]]
+- [[DevSecOps-Proyecto/Referencia/Comandos-Útiles]]
+- [[DevSecOps-Proyecto/Referencia/Vulnerabilidades-Encontradas]]
+
+#config #devsecops #containers #cloud #database #proyecto #api #git #logging #vulnerabilidades #secrets #testing #referencia #monitoring

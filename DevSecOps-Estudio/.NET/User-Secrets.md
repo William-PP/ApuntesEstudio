@@ -1,4 +1,4 @@
-﻿# .NET — User Secrets
+# .NET — User Secrets
 
 ## QUÉ es
 
@@ -51,4 +51,5 @@ Los `:` se convierten en `__` (doble underscore).
 
 ## Referencia
 - [[DevSecOps-Estudio/00-Index]]
-- [[DevSecOps-Proyecto/Fase-0-Seguridad/Secrets-Management]]
+
+#config #devsecops #dotnet #api #estudio #git #user-secrets #dotnet #csharp #secrets

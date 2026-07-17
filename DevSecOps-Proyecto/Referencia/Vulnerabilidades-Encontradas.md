@@ -39,3 +39,10 @@
 ---
 
 <!-- Agrega tus vulnerabilidades aquí usando la plantilla -->
+
+## Referencia
+- [[DevSecOps-Proyecto/00-Visión-General]]
+- [[DevSecOps-Proyecto/Referencia/Glosario-DevSecOps]]
+- [[DevSecOps-Proyecto/Referencia/Comandos-Útiles]]
+
+#config #devsecops #proyecto #api #git #vulnerabilidades #secrets #referencia

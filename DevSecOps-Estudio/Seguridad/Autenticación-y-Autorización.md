@@ -1,4 +1,4 @@
-﻿# Autenticación y Autorización
+# Autenticación y Autorización
 
 > [!info] OWASP Top 10:2025
 > **A07:Authentication Failures** — Se mantiene en #7. Incluye autenticación débil, manejo de sesiones, y falta de MFA.

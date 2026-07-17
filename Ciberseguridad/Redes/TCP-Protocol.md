@@ -1,4 +1,4 @@
-﻿# TCP — Protocolo y Análisis
+# TCP — Protocolo y Análisis
 
 ## Three-Way Handshake
 
@@ -49,5 +49,5 @@ Cierra una conexión de forma abrupta. Puede indicar:
 
 ## Referencia
 - [[Ciberseguridad/00-Index]]
-- [[Redes/Wireshark-TShark]]
-- [[Redes/Filtros-Wireshark]]
+
+#tcp #protocolo #ciberseguridad #redes

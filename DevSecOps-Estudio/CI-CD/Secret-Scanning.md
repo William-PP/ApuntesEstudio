@@ -1,4 +1,4 @@
-﻿# Secret Scanning
+# Secret Scanning
 
 ## QUÉ es
 
@@ -92,5 +92,5 @@ repos:
 
 ## Referencia
 - [[DevSecOps-Estudio/00-Index]]
-- [[CI-CD/GitHub-Actions]]
-- [[DevSecOps-Proyecto/Referencia/Glosario-DevSecOps]]
+
+#config #ci-cd #devsecops #api #estudio #git #secret-scanning #seguridad #secrets #sca #dependencias #github-actions

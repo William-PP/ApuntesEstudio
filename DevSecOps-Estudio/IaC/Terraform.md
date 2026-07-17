@@ -1,4 +1,4 @@
-﻿# Terraform — IaC
+# Terraform — IaC
 
 ## QUÉ es
 
@@ -104,4 +104,5 @@ terraform fmt           # Formatear código
 
 ## Referencia
 - [[DevSecOps-Estudio/00-Index]]
-- [[DevSecOps-Proyecto/Fase-4-IaC/00-Resumen-Fase-4]]
+
+#terraform #iac #config #devsecops #cloud #database #estudio #secrets #terraform #iac

@@ -1,4 +1,4 @@
-﻿# Kerberos y SAM
+# Kerberos y SAM
 
 ## QUÉ es cada uno
 
@@ -23,5 +23,5 @@ El archivo local de Windows que actúa como "llavero" de cada equipo. Guarda usu
 
 ## Referencia
 - [[Ciberseguridad/00-Index]]
-- [[DNS/DNS-Sospechoso]]
-- [[Redes/Filtros-Wireshark]]
+
+#active-directory #database #ad #sam #windows #kerberos #autenticacion #ciberseguridad

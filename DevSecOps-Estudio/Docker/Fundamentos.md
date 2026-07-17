@@ -1,4 +1,4 @@
-﻿# Docker — Fundamentos
+# Docker — Fundamentos
 
 ## QUÉ es
 
@@ -83,5 +83,5 @@ ENTRYPOINT ["dotnet", "MyApp.dll"]
 
 ## Referencia
 - [[DevSecOps-Estudio/00-Index]]
-- [[Docker/Dockerfile-Seguro]]
-- [[Docker/Docker-Compose]]
+
+#devsecops #containers #estudio #docker #git #logging #microservices #testing #fundamentos #deploy

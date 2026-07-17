@@ -1,4 +1,4 @@
-﻿# Anti-Patrones de Seguridad
+# Anti-Patrones de Seguridad
 
 ## QUÉ es
 
@@ -174,7 +174,8 @@ _logger.LogError(ex, "Error processing request for {UserId}", userId);
 | 9   | Sin health checks         | A09 Logging and Alerting Failures | Code review                           |
 | 10  | Sin structured logging    | A09 Logging and Alerting Failures | Code review                           |
 
-> [!tip] Patrón general La mayoría de estos anti-patrones caen en **A02 Security Misconfiguration** — la categoría que en OWASP Top 10:2025 subió de #5 a #2. Tiene sentido: son errores de "olvido" o configuración por defecto, no fallas de diseño complejas — por eso son los más fáciles de prevenir con un checklist y los más comunes en la práctica.
+> [!tip] Patrón general
+> La mayoría de estos anti-patrones caen en **A02 Security Misconfiguration** — la categoría que en OWASP Top 10:2025 subió de #5 a #2. Tiene sentido: son errores de "olvido" o configuración por defecto, no fallas de diseño complejas — por eso son los más fáciles de prevenir con un checklist y los más comunes en la práctica.
 
 ---
 #seguridad #anti-patrones #dotnet #devsecops #code-review 

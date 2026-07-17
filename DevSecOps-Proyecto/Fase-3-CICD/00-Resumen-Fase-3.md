@@ -225,3 +225,9 @@ updates:
 ## Links Relacionados
 - [[00-Resumen-Fase-0]]
 - [[DevSecOps-Proyecto/Referencia/Glosario-DevSecOps]]
+
+## Referencia
+- [[DevSecOps-Proyecto/00-Visión-General]]
+- [[DevSecOps-Estudio/00-Index]]
+
+#ci-cd #devsecops #proyecto #fase-3 #api #git #secrets #testing #deploy

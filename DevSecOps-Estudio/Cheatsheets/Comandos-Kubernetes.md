@@ -1,4 +1,4 @@
-﻿# Cheatsheet — Kubernetes
+# Cheatsheet — Kubernetes
 
 ## Comandos esenciales
 
@@ -56,4 +56,5 @@ kubectl port-forward pod-name 8080:8080  # Port forward
 
 ## Referencia
 - [[DevSecOps-Estudio/00-Index]]
-- [[Kubernetes/Fundamentos]]
+
+#cheatsheets #debug #comandos #devsecops #estudio #logging #secrets #deploy

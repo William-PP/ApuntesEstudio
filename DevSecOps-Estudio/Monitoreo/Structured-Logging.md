@@ -1,4 +1,4 @@
-﻿# Structured Logging con Serilog
+# Structured Logging con Serilog
 
 ## QUÉ es
 
@@ -73,5 +73,5 @@ builder.Host.UseSerilog((context, config) =>
 
 ## Referencia
 - [[DevSecOps-Estudio/00-Index]]
-- [[Monitoreo/Prometheus]]
-- [[Monitoreo/Grafana]]
+
+#debug #config #devsecops #database #structured-logging #observabilidad #estudio #logging #monitoreo #monitoring

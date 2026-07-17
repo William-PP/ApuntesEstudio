@@ -1,4 +1,4 @@
-﻿# Docker Compose
+# Docker Compose
 
 ## QUÉ es
 
@@ -75,4 +75,5 @@ docker-compose ps
 
 ## Referencia
 - [[DevSecOps-Estudio/00-Index]]
-- [[Docker/Fundamentos]]
+
+#config #devsecops #containers #docker-compose #database #api #estudio #docker #logging #testing

@@ -1,4 +1,4 @@
-﻿# Cheatsheet — Git
+# Cheatsheet — Git
 
 ## Comandos esenciales
 
@@ -47,4 +47,5 @@ gitleaks protect --staged           # Escanear staged
 
 ## Referencia
 - [[DevSecOps-Estudio/00-Index]]
-- [[CI-CD/Secret-Scanning]]
+
+#cheatsheets #comandos #devsecops #estudio #git #secrets

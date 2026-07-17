@@ -90,3 +90,5 @@ for root, dirs, files in os.walk('.'):
 Corré ambos scripts de las secciones 1 y 2. Si encontrás algo roto que NO
 te pidieron arreglar, no lo edites sin avisar — reportalo al final de tu
 respuesta como "Encontré esto de paso, ¿lo corrijo también?".
+
+#logging #owasp #config #git

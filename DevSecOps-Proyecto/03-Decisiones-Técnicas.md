@@ -94,3 +94,8 @@
 - [[00-Visión-General]]
 - [[01-Arquitectura]]
 - [[02-Threat-Model]]
+
+## Referencia
+- [[DevSecOps-Proyecto/00-Visión-General]]
+
+#proyecto #database #devsecops #monitoring

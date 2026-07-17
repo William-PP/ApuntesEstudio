@@ -1,4 +1,4 @@
-﻿# Injection (Inyección de Código)
+# Injection (Inyección de Código)
 
 > [!info] OWASP Top 10:2025
 > **A05:Injection** — Baja de #3 a #5 pero sigue siendo fundamental. SQLi está en declive gracias a ORMs, pero XSS y SSTI siguen siendo relevantes.

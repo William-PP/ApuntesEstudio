@@ -214,3 +214,9 @@ kubectl describe pod <pod-name>
 ## Links Relacionados
 - [[00-Resumen-Fase-0]]
 - [[DevSecOps-Proyecto/Referencia/Glosario-DevSecOps]]
+
+## Referencia
+- [[DevSecOps-Proyecto/00-Visión-General]]
+- [[DevSecOps-Estudio/00-Index]]
+
+#config #devsecops #containers #fase-5 #database #proyecto #api #git #logging #secrets #kubernetes #deploy

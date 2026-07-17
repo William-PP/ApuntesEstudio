@@ -1,4 +1,4 @@
-﻿# CORS (Cross-Origin Resource Sharing)
+# CORS (Cross-Origin Resource Sharing)
 
 > [!info] OWASP Top 10:2025
 > **A02:Security Misconfiguration** — CORS mal configurado cae en esta categoría. Subió de #5 a #2 en 2025.

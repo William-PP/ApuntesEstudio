@@ -1,4 +1,4 @@
-﻿# Comandos de TShark
+# Comandos de TShark
 
 ## Comandos esenciales
 
@@ -41,5 +41,5 @@ tshark -i eth0 -Y "http.request.method == GET"
 
 ## Referencia
 - [[Ciberseguridad/00-Index]]
-- [[Redes/Wireshark-TShark]]
-- [[Redes/Filtros-Wireshark]]
+
+#tshark #cli #comandos #ciberseguridad #redes

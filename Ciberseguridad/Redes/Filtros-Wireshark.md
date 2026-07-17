@@ -1,4 +1,4 @@
-﻿# Filtros en Wireshark
+# Filtros en Wireshark
 
 ## Filtros de protocolo
 
@@ -32,5 +32,5 @@
 
 ## Referencia
 - [[Ciberseguridad/00-Index]]
-- [[Redes/Wireshark-TShark]]
-- [[Redes/Comandos-TShark]]
+
+#wireshark #analisis-trafico #filtros #ciberseguridad #redes

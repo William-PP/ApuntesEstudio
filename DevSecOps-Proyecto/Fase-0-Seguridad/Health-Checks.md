@@ -97,3 +97,12 @@ app.MapHealthChecks("/health/live", new HealthCheckOptions
 ## Links Relacionados
 - [[00-Resumen-Fase-0]]
 - [[Secrets-Management]]
+
+## Referencia
+- [[DevSecOps-Proyecto/00-Visión-General]]
+- [[DevSecOps-Estudio/00-Index]]
+- [[DevSecOps-Proyecto/Fase-0-Seguridad/Rate-Limiting]]
+- [[DevSecOps-Proyecto/Fase-0-Seguridad/JWT-Setup]]
+- [[DevSecOps-Proyecto/Fase-0-Seguridad/CORS-Config]]
+
+#config #seguridad #devsecops #database #proyecto #monitoring #secrets #fase-0 #health-checks #dotnet

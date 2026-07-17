@@ -1,4 +1,4 @@
-﻿# SCA (Software Composition Analysis)
+# SCA (Software Composition Analysis)
 
 ## QUÉ es
 
@@ -73,5 +73,5 @@ updates:
 
 ## Referencia
 - [[DevSecOps-Estudio/00-Index]]
-- [[CI-CD/SAST]]
-- [[CI-CD/GitHub-Actions]]
+
+#ci-cd #devsecops #owasp #estudio #git #vulnerabilidades #sca #dependencias #github-actions

@@ -202,3 +202,9 @@ public async Task<IActionResult> Login(LoginDTO dto)
 ## Links Relacionados
 - [[00-Resumen-Fase-0]]
 - [[DevSecOps-Proyecto/Referencia/Glosario-DevSecOps]]
+
+## Referencia
+- [[DevSecOps-Proyecto/00-Visión-General]]
+- [[DevSecOps-Estudio/00-Index]]
+
+#debug #config #devsecops #database #proyecto #api #logging #fase-6 #monitoreo #monitoring #checklist

@@ -1,4 +1,4 @@
-﻿# Prometheus — Metrics
+# Prometheus — Metrics
 
 ## QUÉ es
 
@@ -36,5 +36,5 @@ app.MapMetrics("/metrics");
 
 ## Referencia
 - [[DevSecOps-Estudio/00-Index]]
-- [[Monitoreo/Structured-Logging]]
-- [[Monitoreo/Grafana]]
+
+#config #devsecops #api #estudio #prometheus #monitoring #logging #monitoreo #monitoring

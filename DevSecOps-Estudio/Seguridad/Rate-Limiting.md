@@ -1,4 +1,4 @@
-﻿# Rate Limiting
+# Rate Limiting
 
 > [!info] OWASP Top 10:2025
 > **A01:Broken Access Control** y **A07:Authentication Failures** — Rate limiting protege contra fuerza bruta (A07) y abuso de endpoints (A01).

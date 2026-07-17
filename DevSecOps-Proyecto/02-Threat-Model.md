@@ -91,3 +91,8 @@ Proceso sistemático para identificar, cuantificar y abordar las amenazas de seg
 - [[00-Visión-General]]
 - [[01-Arquitectura]]
 - [[03-Decisiones-Técnicas]]
+
+## Referencia
+- [[DevSecOps-Proyecto/00-Visión-General]]
+
+#secrets #proyecto #api #devsecops

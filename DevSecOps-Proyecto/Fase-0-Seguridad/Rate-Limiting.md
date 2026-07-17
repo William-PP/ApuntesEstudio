@@ -76,3 +76,12 @@ public class AuthController : ControllerBase
 ## Links Relacionados
 - [[00-Resumen-Fase-0]]
 - [[JWT-Setup]]
+
+## Referencia
+- [[DevSecOps-Proyecto/00-Visión-General]]
+- [[DevSecOps-Estudio/00-Index]]
+- [[DevSecOps-Proyecto/Fase-0-Seguridad/Health-Checks]]
+- [[DevSecOps-Proyecto/Fase-0-Seguridad/JWT-Setup]]
+- [[DevSecOps-Proyecto/Fase-0-Seguridad/CORS-Config]]
+
+#config #seguridad #devsecops #proyecto #api #rate-limiting #api #fase-0

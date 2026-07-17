@@ -1,6 +1,6 @@
-﻿# Wireshark y TShark
+# Wireshark y TShark
 
-## QUÉ es
+## ¿Qué es?
 
 | Herramienta | Definición |
 |------------|-----------|
@@ -63,6 +63,5 @@ Formato: `Fecha-ubicación-tipo-Actividad-Extensión`
 
 ## Referencia
 - [[Ciberseguridad/00-Index]]
-- [[Redes/TCP-Protocol]]
-- [[Redes/Filtros-Wireshark]]
-- [[Redes/Comandos-TShark]]
+
+#ciberseguridad #tshark #cli #api #redes #wireshark #analisis-trafico
