@@ -1,32 +1,40 @@
+---
+tags: [proyecto/gestion-deportiva, devsecops, fase-1]
+created: 2026-07-14
+updated: 2026-07-18
+---
+
 # Visión General del Proyecto
 
 ## ¿Qué es este proyecto?
-Mi projecto es de gestion deportiva de judo la idea es facilitar a los entrenadores y monitores del deporte  el seguimiento de los practicantes de judo. Desde la gestion de torneos, ctegorias, modalidades, torneos y resultados
-[Tu proyecto aquí]
+Mi proyecto es de gestión deportiva de judo. La idea es facilitar a los entrenadores y monitores del deporte el seguimiento de los practicantes de judo: desde la gestión de torneos, categorías, modalidades, inscripciones y resultados.
 
 ## Objetivo
 Crear una aplicación funcional aplicando **DevSecOps** de principio a fin, documentando cada fase del proceso.
 
 ## Stack Tecnológico
-| Capa          | Tecnología | Justificación                                                                                                                              |
-| ------------- | ---------- | ------------------------------------------------------------------------------------------------------------------------------------------ |
-| Lenguaje      | C#         | Ahora mismo es por el conocimiento del lenguaje mas no por un tenicismo como tal aunque en el futuro tengo pensado indagar mas al respecto |
-| Framework     |            | . net 10                                                                                                                                   |
-| Base de datos |            | sql                                                                                                                                        |
-| Container     |            |                                                                                                                                            |
-| CI/CD         |            |                                                                                                                                            |
-| Cloud         |            |                                                                                                                                            |
-| Monitoreo     |            |                                                                                                                                            |
+
+| Capa | Tecnología | Justificación |
+|------|-----------|---------------|
+| Lenguaje | C# | Conocimiento previo del lenguaje; en el futuro pretendo indagar más en otros |
+| Framework | .NET 10 | Ver [[DevSecOps-Proyecto/03-Decisiones-Técnicas]] |
+| Base de datos | SQL Server | Ver [[DevSecOps-Proyecto/03-Decisiones-Técnicas]] |
+| ORM | Entity Framework Core | Ver [[DevSecOps-Proyecto/03-Decisiones-Técnicas]] |
+| Container | Docker | Ver [[DevSecOps-Proyecto/03-Decisiones-Técnicas]] |
+| CI/CD | GitHub Actions | Ver [[DevSecOps-Proyecto/03-Decisiones-Técnicas]] |
+| Seguridad | Gitleaks, SonarCloud, Trivy, OWASP ZAP | Ver [[DevSecOps-Proyecto/03-Decisiones-Técnicas]] |
+| Monitoreo | Prometheus + Grafana | Ver [[DevSecOps-Proyecto/03-Decisiones-Técnicas]] |
+| Cloud | Pendiente (último paso) | |
 
 ## Fases del Proyecto
 
 ### Fase -1: Diseño Seguro y Setup
-- [ ] Definir tema del proyecto
+- [x] Definir tema del proyecto
 - [ ] Threat Modeling (STRIDE)
-- [ ] Diseñar arquitectura por capas
+- [x] Diseñar arquitectura por capas
 - [ ] Configurar repo (.gitignore, secrets, git hooks)
 - [ ] Definir branching strategy
-- [ ] Documentar decisiones técnicas
+- [x] Documentar decisiones técnicas
 
 ### Fase 0: Seguridad en Código (Shift Left)
 - [ ] Autenticación JWT
@@ -80,15 +88,15 @@ Crear una aplicación funcional aplicando **DevSecOps** de principio a fin, docu
 
 ## Estado Actual
 **Fase en progreso:** Fase -1
-**Última actualización:** 2026-07-14
-
-## Links Relacionados
-- [[01-Arquitectura]]
-- [[02-Threat-Model]]
-- [[03-Decisiones-Técnicas]]
-- [[DevSecOps-Proyecto/Referencia/Glosario-DevSecOps]]
+**Última actualización:** 2026-07-18
 
 ## Referencia
-- [[DevSecOps-Proyecto/00-Visión-General]]
+- [[DevSecOps-Proyecto/01-Arquitectura]]
+- [[DevSecOps-Proyecto/02-Threat-Model]]
+- [[DevSecOps-Proyecto/03-Decisiones-Técnicas]]
+- [[DevSecOps-Proyecto/GestionDeportiva-Diccionario-Datos]]
+- [[DevSecOps-Proyecto/GestionDeportiva-Diagrama-Clases]]
+- [[DevSecOps-Proyecto/Referencia/Glosario-DevSecOps]]
 
-#config #devsecops #containers #cloud #database #proyecto #git #logging #secrets #testing #deploy #monitoring
+---
+#config #devsecops #proyecto #gestion-deportiva
