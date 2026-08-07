@@ -7,8 +7,8 @@ Implementar controles de seguridad directamente en el código de la aplicación 
 - [ ] Autenticación JWT
 - [ ] CORS policy configurada
 - [ ] Rate Limiting implementado
-- [ ] Input Validation con FluentValidation
-- [ ] Health Checks configurados
+- [x] Input Validation con FluentValidation
+- [x] Health Checks configurados
 - [ ] Secrets fuera del código (User Secrets / env vars)
 
 ## Autenticación JWT
@@ -90,6 +90,9 @@ Validar que los datos que entran al sistema sean correctos y seguros. Previene i
 dotnet add package FluentValidation.AspNetCore
 ```
 
+### Nota detallada
+Ver [[DevSecOps-Proyecto/Fase-0-Seguridad/Input-Validation]]
+
 ## Health Checks
 
 ### ¿Qué es?
@@ -135,5 +138,6 @@ dotnet user-secrets list --project TuProyecto.API
 - [[DevSecOps-Proyecto/Fase-0-Seguridad/Health-Checks]]
 - [[DevSecOps-Proyecto/Fase-0-Seguridad/Rate-Limiting]]
 - [[DevSecOps-Proyecto/Fase-0-Seguridad/JWT-Setup]]
+- [[DevSecOps-Proyecto/Fase-0-Seguridad/Input-Validation]]
 
 #config #seguridad #devsecops #database #proyecto #api #git #secrets #fase-0 #checklist

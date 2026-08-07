@@ -37,12 +37,12 @@ Crear una aplicación funcional aplicando **DevSecOps** de principio a fin, docu
 - [x] Documentar decisiones técnicas
 
 ### Fase 0: Seguridad en Código (Shift Left)
-- [ ] Autenticación JWT
-- [ ] CORS policy
-- [ ] Rate Limiting
-- [ ] Input Validation (FluentValidation)
-- [ ] Health Checks
-- [ ] Secrets Management (User Secrets / env vars)
+- [x] Autenticación JWT
+- [x] CORS policy
+- [x] Rate Limiting
+- [x] Input Validation (FluentValidation)
+- [x] Health Checks
+- [x] Secrets Management (User Secrets / env vars)
 
 ### Fase 1: Testing Automatizado
 - [ ] Unit Tests (xUnit + Moq)
