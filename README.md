@@ -1,36 +1,54 @@
+---
+type: otro
+state: activa
+created: 2026-08-15
+updated: 2026-08-15
+tags: [readme, documentacion, database, git, logging, secrets, testing, monitoring]
+---
+
 # ApuntesEstudio
 
-Bóveda de Obsidian para ciberseguridad y DevSecOps.
+Bóveda de Obsidian para ciberseguridad y DevSecOps, organizada con una
+arquitectura híbrida **PARA + MOCs**.
 
 ## Estructura
 
-### `Ciberseguridad/`
-Fundamentos de redes, tráfico, análisis forense y Active Directory.
+### `00 - META`
+Mapas del vault, flujo de trabajo y convenciones. Ver `00 - META/META.md`.
 
-### `DevSecOps-Estudio/`
-Notas de estudio organizadas por nivel — desde introducción hasta Kubernetes:
-- **Nivel 0**: Introducción y bases
-- **Nivel 1**: Seguridad (Inyección, Autenticación, CORS, Rate-Limiting, Encryption)
-- **Nivel 2**: .NET, CI/CD, Docker, Kubernetes, IaC, Monitoreo
-- **Nivel 3**: Patrones y Troubleshooting
+### `10 - INBOX`
+Captura rápida de ideas y enlaces sueltos antes de clasificar.
 
-### `DevSecOps-Proyecto`
-Plantillas aplicadas al proyecto SportsLeague (.NET 10 + EF Core + SQL Server), organizadas por fases:
-- Fase 0: Seguridad (Secrets, JWT, Health Checks)
-- Fase 1: Testing (Unit, Integration, E2E)
-- Fase 2: Docker (Dockerfile seguro, Compose, Trivy)
-- Fase 3: CI/CD (GitHub Actions, SAST, SCA, Secret Scanning)
-- Fase 4: IaC (Terraform, ARM Templates)
-- Fase 5: Kubernetes (Security Context, Network Policies)
-- Fase 6: Monitoreo (Prometheus, Grafana, Structured Logging)
+### `20 - PROYECTOS`
+Cosas con fecha de inicio y fin.
+- `Minipensum-DevSecOps-Pentesting.md`: plan de estudio (Ago–Dic 2026).
+- `DevSecOps-Proyecto/`: proyecto aplicado SportsLeague (.NET 10 + EF Core + SQL Server)
+  organizado por fases (Seguridad, Testing, Docker, CI/CD, IaC, Kubernetes, Monitoreo).
+
+### `30 - ÁREAS`
+Responsabilidades continuas sin fecha de fin (a definir).
+
+### `40 - RECURSOS`
+Referencia temática, dividida en:
+- `MOCs/`: mapas de contenido por tema (Ciberseguridad, DevSecOps, Redes, DNS,
+  Forense, Pentesting, .NET, Cheatsheets, CI-CD, Docker, IaC, Kubernetes,
+  Monitoreo, Patrones, Seguridad, Troubleshooting).
+- `Conceptos/`: notas conceptuales (SQL Injection, SAST, Terraform, Patrones…).
+- `Guías & Flujos/`: guías operativas y cheatsheets (GitHub-Actions, Trivy,
+  Comandos-Docker, Grafana…).
+
+### `50 - ARCHIVO`
+Notas cerradas o fuera de vigencia.
 
 ## Reglas del repo
 
-Ver `AGENTS.md` para las reglas que siguen las herramientas que trabajan en este repo.
+Ver `AGENTS.md` para las reglas que siguen las herramientas que trabajan en este repo
+(sin duplicados de nombre, links verificados, placeholders no vacíos).
 
 ## Referencia
-- [[Ciberseguridad/00-Index]]
-- [[DevSecOps-Estudio/00-Index]]
-- [[DevSecOps-Proyecto/00-Visión-General]]
+- [[00 - META/META]]
+- [[40 - RECURSOS/MOCs/MOC - Ciberseguridad]]
+- [[40 - RECURSOS/MOCs/MOC - DevSecOps]]
+- [[20 - PROYECTOS/DevSecOps-Proyecto/Flujo de un proyecto]]
 
 #readme #documentacion #database #git #logging #secrets #testing #monitoring

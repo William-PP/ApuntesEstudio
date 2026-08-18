@@ -4,21 +4,21 @@
     "type": "split",
     "children": [
       {
-        "id": "8348e9bb791bbdf6",
+        "id": "7a3ce31858622c6b",
         "type": "tabs",
         "children": [
           {
-            "id": "a9028cc9b80b3110",
+            "id": "5e468441c3130400",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "DevSecOps-Proyecto/Fase-1-Testing/Unit-Tests-UserService.md",
+                "file": "README.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Unit-Tests-UserService"
+              "title": "README"
             }
           }
         ]
@@ -41,7 +41,9 @@
               "type": "file-explorer",
               "state": {
                 "sortOrder": "alphabetical",
-                "autoReveal": false
+                "autoReveal": false,
+                "showSearch": false,
+                "searchQuery": ""
               },
               "icon": "lucide-folder-closed",
               "title": "Explorador de archivos"
@@ -183,44 +185,44 @@
       "bases:Crear nueva base": false
     }
   },
-  "active": "a9028cc9b80b3110",
+  "active": "efd3060487547d4a",
   "lastOpenFiles": [
-    "DevSecOps-Proyecto/Fase-1-Testing/00-Resumen-Fase-1.md",
-    "DevSecOps-Proyecto/Fase-1-Testing/Unit-Tests-UserService.md",
-    "DevSecOps-Proyecto/00-Visión-General.md",
-    "DevSecOps-Proyecto/Fase-0-Seguridad/Health-Checks.md",
-    "DevSecOps-Proyecto/Fase-0-Seguridad/Input-Validation.md",
-    "DevSecOps-Proyecto/Fase-0-Seguridad/JWT-Setup.md",
-    "DevSecOps-Proyecto/Fase-0-Seguridad/Rate-Limiting.md",
-    "DevSecOps-Proyecto/Fase-0-Seguridad/00-Resumen-Fase-0.md",
-    "DevSecOps-Proyecto/02-Threat-Model.md",
-    "DevSecOps-Proyecto/01-Arquitectura.md",
-    "DevSecOps-Proyecto/GestionDeportiva-Diagrama-Clases.md",
-    "DevSecOps-Proyecto/03-Decisiones-Técnicas.md",
-    "DevSecOps-Proyecto/GestionDeportiva-Diccionario-Datos.md",
-    "DevSecOps-Proyecto/Fase-3-CICD/00-Resumen-Fase-3.md",
-    "DevSecOps-Estudio/00-Index.md",
-    "DevSecOps-Estudio/Introduccion-AppSec-DevSecOps.md",
-    "DevSecOps-Estudio/Patrones/Anti-Patrones-Seguridad.md",
-    "DevSecOps-Estudio/Patrones/Best-Practices.md",
-    "DevSecOps-Estudio/Seguridad/Bases-Datos-Vulnerabilidades.md",
-    "Ciberseguridad/Redes/Wireshark-TShark.md",
-    "Ciberseguridad/Redes/Filtros-Wireshark.md",
-    "Untitled.canvas",
-    "DevSecOps-Estudio/Seguridad/Autenticación-y-Autorización.md",
-    "README.md",
     "AGENTS.md",
-    "DevSecOps-Estudio/Seguridad/CORS.md",
-    "Ciberseguridad/00-Index.md",
-    "Ciberseguridad/Forense",
-    "Ciberseguridad/Active-Directory",
-    "Ciberseguridad/DNS",
-    "Ciberseguridad/Redes",
-    "Ciberseguridad",
-    "DevSecOps-Estudio/Troubleshooting",
-    "DevSecOps-Estudio/Patrones",
-    "DevSecOps-Estudio/Cheatsheets",
-    "DevSecOps-Estudio/Monitoreo",
-    "DevSecOps-Estudio/IaC"
+    "50 - ARCHIVO/50-ARCHIVO.md",
+    "30 - ÁREAS/30-ÁREAS.md",
+    "10 - INBOX/10-INBOX.md",
+    "00 - META/PROTOCOLO-PKM-VAULT.md",
+    "40 - RECURSOS/Conceptos/Hardening.md",
+    "40 - RECURSOS/Conceptos/Docker-Fundamentos.md",
+    "40 - RECURSOS/Conceptos/CORS.md",
+    "40 - RECURSOS/Conceptos/Autenticación-y-Autorización.md",
+    "20 - PROYECTOS/Minipensum-DevSecOps-Pentesting.md",
+    "00 - META/META.md",
+    "README.md",
+    "20 - PROYECTOS/DevSecOps-Proyecto/Referencia/Comandos-Útiles.md",
+    "20 - PROYECTOS/DevSecOps-Proyecto/Flujo de un proyecto.md",
+    "20 - PROYECTOS/DevSecOps-Proyecto/GestionDeportiva-Diagrama-Clases.md",
+    "40 - RECURSOS/MOCs/MOC - .NET.md",
+    "40 - RECURSOS/Conceptos/Best-Practices.md",
+    "40 - RECURSOS/Conceptos/Bases-Datos-Vulnerabilidades.md",
+    "40 - RECURSOS/Conceptos/Anti-Patrones-Seguridad.md",
+    "40 - RECURSOS/Conceptos/DAST-Detallado.md",
+    "40 - RECURSOS/Conceptos/SAST-Detallado.md",
+    "40 - RECURSOS/Conceptos/Rate-Limiting.md",
+    "40 - RECURSOS/Conceptos/Injection.md",
+    "40 - RECURSOS/Conceptos/Encryption.md",
+    "40 - RECURSOS/MOCs/MOC - Troubleshooting.md",
+    "40 - RECURSOS/MOCs/MOC - Seguridad.md",
+    "50 - ARCHIVO",
+    "30 - ÁREAS",
+    "10 - INBOX",
+    "00 - META",
+    "20 - PROYECTOS/DevSecOps-Proyecto/Referencia",
+    "20 - PROYECTOS/DevSecOps-Proyecto/Fase-6-Monitoreo",
+    "20 - PROYECTOS/DevSecOps-Proyecto/Fase-4-IaC",
+    "20 - PROYECTOS/DevSecOps-Proyecto/Fase-5-Kubernetes",
+    "20 - PROYECTOS/DevSecOps-Proyecto/Fase-3-CICD",
+    "20 - PROYECTOS/DevSecOps-Proyecto/Fase-1-Testing",
+    "Untitled.canvas"
   ]
 }
