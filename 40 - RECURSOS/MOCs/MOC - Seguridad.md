@@ -22,6 +22,7 @@ aliases: [Seguridad]
 - [[40 - RECURSOS/Conceptos/Encryption]] — Hash, TLS, AES, bcrypt
 - [[40 - RECURSOS/Conceptos/SAST-Detallado]] — Taint analysis, Semgrep, SonarQube
 - [[40 - RECURSOS/Conceptos/DAST-Detallado]] — OWASP ZAP, Burp Suite
+- [[40 - RECURSOS/Conceptos/OAST]] — Out-of-Band, Burp Collaborator, DNS exfiltration
 
 ## Referencia
 - [[MOC - DevSecOps]]

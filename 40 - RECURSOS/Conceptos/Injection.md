@@ -28,12 +28,15 @@ Query resultante:  SELECT * FROM users WHERE name='' OR 1=1 --'
 | Variantes | Descripción |
 |-----------|-------------|
 | **Classic** | Input directo en query |
+| **Error-based** | Extrae datos de mensajes de error verbose |
 | **Blind** | No ve resultados pero infiere por comportamiento |
 | **Union-based** | Usa UNION para extraer datos de otras tablas |
 | **Second-order** | Payload guardado en BD, se ejecuta en otra query |
+| **XML-based** | Payload en XML con ofuscación para evadir WAF |
 
 > [!tip] Ver más
 > Guía completa de SQLi con detección, payloads por motor de BD y prevención: [[40 - RECURSOS/Conceptos/SQL-Injection]]
+> Técnicas OAST para inyecciones ciegas: [[40 - RECURSOS/Conceptos/OAST]]
 
 ### XSS (Cross-Site Scripting)
 
