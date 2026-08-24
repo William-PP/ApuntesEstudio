@@ -2,7 +2,8 @@
 type: moc
 state: activa
 created: 2026-08-15
-updated: 2026-08-15
+updated: 2026-08-23
+tags: [ciberseguridad, redes, forense, hardening, pentesting]
 aliases: [Ciberseguridad]
 ---
 
@@ -20,7 +21,7 @@ aliases: [Ciberseguridad]
 - [[40 - RECURSOS/MOCs/MOC - Forense]] — Identificación de hosts y artefactos
 
 ### Hardening
-- [[40 - RECURSOS/Conceptos/Hardening]] — Endurecimiento de Debian 13 (NIST/CIS, kernel, cuentas, red, backups)
+- [[40 - RECURSOS/MOCs/MOC - Hardening]] — Endurecimiento de Linux: 6 fases basadas en NIST/CIS
 
 ### Pentesting
 - [[40 - RECURSOS/MOCs/MOC - Pentesting]] — SQLi ofensivo, Burp, PortSwigger

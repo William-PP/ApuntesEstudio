@@ -16,7 +16,9 @@ aliases: [Seguridad]
 
 - [[40 - RECURSOS/Conceptos/Bases-Datos-Vulnerabilidades]] — CVE, NVD, CVSS, OWASP Top 10:2025, CWE
 - [[40 - RECURSOS/Conceptos/Injection]] — SQL Injection, XSS, Command Injection
-- [[40 - RECURSOS/Conceptos/Autenticación-y-Autorización]] — JWT, OAuth, Session, roles
+- [[40 - RECURSOS/Guías & Flujos/Guía - SQLi por Motor]] — Payloads por motor: Oracle, MySQL, PostgreSQL, SQL Server
+- [[40 - RECURSOS/Conceptos/Autenticación-y-Autorización]] — JWT, OAuth, Session, roles, MFA, fuerza bruta
+- [[40 - RECURSOS/Conceptos/Vulnerabilidades-OAuth]] — Implicit flow, redirect_uri, state, scope upgrade
 - [[40 - RECURSOS/Conceptos/CORS]] — Cross-Origin, config en .NET
 - [[40 - RECURSOS/Conceptos/Rate-Limiting]] — Estrategias, config por endpoint
 - [[40 - RECURSOS/Conceptos/Encryption]] — Hash, TLS, AES, bcrypt

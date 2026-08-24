@@ -2,14 +2,15 @@
 type: concepto
 state: activa
 created: 2026-08-15
-updated: 2026-08-15
-tags: [seguridad, autenticacion, jwt, oauth, owasp, authorization]
+updated: 2026-08-23
+tags: [seguridad, autenticacion, jwt, oauth, owasp, authorization, mfa, sesiones, fuerza-bruta]
+aliases: [Autenticación, Autorización]
 ---
 
 # Autenticación y Autorización
 
 > [!info] OWASP Top 10:2025
-> **A07:Authentication Failures** — Se mantiene en #7. Incluye autenticación débil, manejo de sesiones, y falta de MFA.
+> **A07:Authentication Failures** — Se mantiene en #7. Incluye autenticación débil, manejo de sesiones y falta de MFA.
 
 ## QUÉ es
 
@@ -22,11 +23,119 @@ tags: [seguridad, autenticacion, jwt, oauth, owasp, authorization]
 
 ## POR QUÉ importa
 
+Las vulnerabilidades en autenticación son sumamente graves: permiten a atacantes acceder a información confidencial, controlar cuentas ajenas (incluso administradores) y expandir la superficie de ataque. Estas fallas ocurren por debilidades frente a fuerza bruta o por fallos de lógica y codificación que permiten evadir controles.
+
 | Sin autenticación | Sin autorización |
 |-------------------|------------------|
 | Cualquiera accede a tu API | Un usuario normal puede borrar todo |
 | No puedes rastrear quién hizo qué | No hay separación de roles |
 | No puedes controlar permisos | Un atacante con token válido accede a todo |
+
+---
+
+## 1. Vulnerabilidades en Login Basado en Contraseñas
+
+### Ataques de fuerza bruta
+
+Adivinar combinaciones de usuario y contraseña de forma automatizada usando wordlists. Los atacantes optimizan con patrones predecibles (correos, `admin`, `administrator`) y adaptan diccionarios para cumplir políticas comunes (ej. `Mypassword1!`).
+
+### Enumeración de usuarios
+
+El sitio revela si un usuario existe, permitiendo generar listas de usuarios válidos. Se detecta por:
+
+| Vector | Ejemplo |
+|--------|---------|
+| **Mensajes de error** | "Usuario no encontrado" vs "Contraseña incorrecta" — incluso diferencias sutiles en HTML oculto |
+| **Códigos HTTP** | 404 para usuario inexistente vs 401 para contraseña mala |
+| **Tiempos de respuesta** | Servidor verifica contraseña solo tras confirmar usuario → запросы con usuarios válidos tardan más |
+
+> [!tip] Ataque de timing
+> Los atacantes exageran la diferencia enviando contraseñas extremadamente largas que sobrecargan el procesamiento de hashes.
+
+### Protección deficiente contra fuerza bruta
+
+Muchos sistemas tienen fallos lógicos: restablecen el contador de intentos si el atacante inicia sesión exitosamente con su propia cuenta, insertando credenciales propias a intervalos regulares dentro de la lista de ataques.
+
+### Bloqueo de cuentas
+
+| Ventaja | Desventaja |
+|---------|------------|
+| Evita fuerza bruta dirigida | Facilita enumeración (delata si usuario existe) |
+| | No protege contra credential stuffing (1 intento por cuenta) |
+| | Permite DoS bloqueando masivamente cuentas válidas |
+
+### Rate limiting esquivable
+
+Los atacantes manipulan cabeceras HTTP para camuflar su IP real o envían múltiples intentos de contraseña en una única solicitud HTTP.
+
+### Autenticación Básica HTTP
+
+Intrínsecamente insegura: concatena usuario y contraseña y los codifica con Base64 en la cabecera `Authorization`. Sin HTTPS/HSTS, las credenciales se interceptan fácilmente. Carece de controles contra fuerza bruta y es vulnerable a CSRF.
+
+---
+
+## 2. Vulnerabilidades en MFA/2FA
+
+El MFA es sustancialmente más seguro, pero su seguridad depende de la correcta implementación:
+
+### El "falso" segundo factor
+
+El uso de códigos enviados por correo **no constituye un segundo factor genuino**: el atacante que conozca la contraseña probablemente pueda vulnerar la del correo, verificando el factor de conocimiento en dos pasos de manera redundante.
+
+### Códigos vía SMS
+
+Transmitir códigos por SMS expone a intercepciones en tránsito o **SIM swapping**. Es preferible aplicaciones generadoras locales (Google Authenticator) o tokens físicos (YubiKey).
+
+### Bypass simple de 2FA
+
+Si la verificación de contraseña y el código ocurren en páginas independientes, el usuario queda en estado pre-autenticado. Muchas aplicaciones permiten navegar directamente a URLs internas sin que el backend verifique si completó el segundo factor.
+
+### Lógica de verificación rota
+
+Si la app no verifica que quien proporciona el código 2FA es el mismo que ingresó la contraseña:
+
+```
+1. Atacante inicia sesión con SUS credenciales
+2. Modifica cookie de cuenta (account=victima) al enviar código 2FA
+3. Si sistema procesa código para la cuenta de la cookie
+4. Y no hay límites estrictos de intentos sobre el código (4-6 dígitos)
+5. → Fuerza bruta sobre el código → acceso a cuenta de víctima
+```
+
+---
+
+## 3. Vulnerabilidades en Gestión de Cuentas
+
+### Cookies de "Recuérdame"
+
+Si las cookies se generan concatenando valores predecibles (usuario, timestamp, contraseña) y se codifican con Base64, un atacante examinando su propia cookie deduce la fórmula y genera cookies falsas. Incluso con hashes, la falta de salt permite fuerza bruta local con bases de datos de hashes.
+
+### Restablecimiento de contraseñas
+
+| Vulnerabilidad | Consecuencia |
+|----------------|-------------|
+| Contraseñas generadas en texto claro por email | Interceptación en infraestructura de correo |
+| Parámetros predecibles en URL (`?user=victima`) | Cambio de contraseña de terceros sin restricción |
+| Token de alta entropía pero sin re-validación POST | Atacante elimina parámetro token y fuerza cambio |
+| URL generada dinámica vía middleware | Password reset poisoning → redirige token a servidor del atacante |
+
+> [!warning] Token robusto no es suficiente
+> El token debe ser de alta entropía, temporizado y destruirse tras usarse. Pero además debe re-validarse al cargar el formulario Y al procesar el cambio final.
+
+### Cambio de contraseña
+
+Si el formulario no valida la contraseña actual o usa campos ocultos para identificar cuenta destino, un atacante manipula la petición HTTP para cambiar contraseñas arbitrariamente o enumerar usuarios.
+
+---
+
+## 4. Vulnerabilidades en OAuth 2.0
+
+OAuth 2.0 delega acceso sin revelar credenciales, pero su flexibilidad facilita fallas de implementación graves.
+
+> [!tip] Ver más
+> Vulnerabilidades detalladas de OAuth: [[40 - RECURSOS/Conceptos/Vulnerabilidades-OAuth]]
+
+---
 
 ## JWT — Cómo funciona
 
@@ -61,7 +170,7 @@ eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwicm9sZSI6IkFkbWluIn0.SflKxwRJSMe
 | **Signature** | Firma criptográfica del header + payload con la secret key |
 
 > [!warning] El payload NO está encriptado
-> JWT solo está **firmado**, no cifrado. Cualquiera puede decodificar el payload (jwt.io). Nunca guardes información sensible (passwords, datos personales) en el payload.
+> JWT solo está **firmado**, no cifrado. Cualquiera puede decodificar el payload (jwt.io). Nunca guardes información sensible en el payload.
 
 ### Claims comunes
 
@@ -152,21 +261,47 @@ public IActionResult GetAll() { ... }
 | `SecurityTokenExpiredException` | Token expirado | Implementar refresh tokens |
 | `InvalidIssuerSigningKey` | Secret key incorrecta | Verificar configuración |
 
-## Tips de seguridad
+---
 
-1. **Nunca** guardes passwords en texto plano — usa bcrypt/argon2
-2. **Siempre** valida la firma y expiración del token en cada request
-3. Usa HTTPS — nunca envíes tokens por HTTP plano
-4. Implementa refresh tokens con rotación para sesiones largas
-5. Rate limit en el endpoint de login
-6. No guardes datos sensibles en el payload (no está cifrado)
-7. Usa algoritmos asimétricos (RS256) si varios servicios necesitan **verificar** pero no **emitir** tokens
-8. Considera MFA (Multi-Factor Authentication) para cuentas sensibles
+## Cómo asegurar la autenticación
+
+### 1. Credenciales en tránsito y reposo
+
+Imponer redirección HTTP → HTTPS estricta. Auditar que nombres de usuario o correos no se filtren en perfiles públicos o respuestas del servidor.
+
+### 2. Políticas de contraseña dinámicas
+
+En lugar de reglas estáticas de complejidad (que generan contraseñas deducibles), usar validadores interactivos como **zxcvbn** de Dropbox, que evalúa complejidad real en tiempo real.
+
+### 3. Prevención integral de enumeración
+
+- Mensajes de error idénticos: "Usuario o contraseña incorrectos"
+- Códigos de estado HTTP idénticos para usuarios válidos e inválidos
+- Sincronizar tiempos de respuesta para que sean indistinguibles
+
+### 4. Mitigación de fuerza bruta efectiva
+
+- Rate limiting basado en IP real
+- CAPTCHA tras límite razonable de intentos fallidos
+- Proteger algoritmos contra manipulación de cabeceras de origen de IP
+- Evitar lógica que restaure contadores de forma sospechosa
+
+### 5. Re-validación de lógica y funciones auxiliares
+
+Auditar cada flujo: cambios de contraseña, restablecimientos, cookies de sesión. Tokens de restablecimiento: alta entropía, temporales, destruirse tras usarse, re-validarse al cargar formulario Y al procesar cambio.
+
+### 6. Implementación correcta de MFA
+
+Usar aplicaciones de autenticación o tokens físicos (no SMS ni email). El backend debe validar estrictamente la correspondencia del token de segundo factor con el identificador del usuario que inició sesión.
+
+---
 
 ## Referencia
+- [[40 - RECURSOS/Conceptos/Vulnerabilidades-OAuth]]
 - [[40 - RECURSOS/MOCs/MOC - Seguridad]]
 - [[40 - RECURSOS/Conceptos/Anti-Patrones-Seguridad]]
+- [[40 - RECURSOS/Conceptos/Rate-Limiting]]
 - [[20 - PROYECTOS/DevSecOps-Proyecto/Fase-0-Seguridad/JWT-Setup]]
 
 ---
-#seguridad #autenticacion #jwt #oauth #owasp #authorization
+#seguridad #autenticacion #jwt #oauth #owasp #authorization #mfa #sesiones #fuerza-bruta

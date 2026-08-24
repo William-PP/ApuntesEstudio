@@ -35,7 +35,7 @@ aliases: [Devsecops]
 | #   | Nota                         | QUÉ aprenderás                        | Tiempo |
 | --- | ---------------------------- | ------------------------------------- | ------ |
 | 6   | Injection                    | SQL Injection, XSS, Command Injection | 20 min |
-| 7   | Autenticación-y-Autorización | JWT, OAuth, Session, roles            | 20 min |
+| 7   | Autenticación-y-Autorización | JWT, OAuth, Session, MFA, fuerza bruta, prevención | 30 min |
 | 8   | CORS                         | Cross-Origin, config en .NET          | 10 min |
 | 9   | Rate-Limiting                | Estrategias, config por endpoint      | 10 min |
 | 10  | Encryption                   | Hash, TLS, AES, bcrypt                | 15 min |
