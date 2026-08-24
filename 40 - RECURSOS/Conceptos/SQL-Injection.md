@@ -208,15 +208,19 @@ SELECT EXTRACTVALUE(xmltype('<?xml version="1.0"?>
 
 No asumas que el payload funciona igual en todas las plataformas:
 
-| Aspecto | Oracle | MySQL | SQL Server |
-|---------|--------|-------|-----------|
-| Concatenación | `\|\|` | `CONCAT()` | `+` |
-| Comentario | `--` | `--`, `#` | `--` |
-| Retardo | `DBMS_LOCK.SLEEP()` / `UTL_INET` | `SLEEP(n)` | `WAITFOR DELAY '0:0:5'` |
-| Versión | `v$version` | `@@version` | `@@version` |
+| Aspecto | Oracle | MySQL | SQL Server | PostgreSQL |
+|---------|--------|-------|-----------|------------|
+| Concatenación | `\|\|` | `CONCAT()` | `+` | `\|\|` |
+| Substring | `SUBSTR()` | `SUBSTRING()` | `SUBSTRING()` | `SUBSTRING()` |
+| Comentario | `--` | `#`, `-- ` | `--`, `/* */` | `--`, `/* */` |
+| Retardo | `dbms_pipe.receive_message()` | `SLEEP()` | `WAITFOR DELAY` | `pg_sleep()` |
+| Versión | `v$version` | `@@version` | `@@version` | `version()` |
 
 > [!warning] Identificar el motor
 > Consultar la versión (ej. `v$version` en Oracle) es fundamental para ajustar el payload. El DAST (ej. OWASP ZAP) lo detecta probando fingerprints de cada motor.
+
+> [!tip] Payloads completos por motor
+> Para payloads detallados de cada motor (fingerprinting, blind, time-based, OAST, exfiltración DNS): [[40 - RECURSOS/Guías & Flujos/Guía - SQLi por Motor]]
 
 ## Examinar la BD
 
@@ -238,10 +242,17 @@ No asumas que el payload funciona igual en todas las plataformas:
 
 ## Prevención
 
+> [!warning] La seguridad no depende del WAF
+> No debés confiar en un firewall de aplicación para detener SQLi. Las defensas reales están en cómo la app maneja las consultas a la BD. Un WAF puede ser evadido (ver sección Bypass de WAF); las consultas parametrizadas, no.
+
 ### Consultas parametrizadas (sentencias preparadas) — LA defensa principal
 
 > [!tip] Regla de oro
 > La entrada del usuario se trata **siempre como dato**, nunca como parte ejecutable de la query. Nunca decidas caso por caso si un dato es "seguro": parametrizá constantemente.
+
+**Cómo funcionan:** Se define primero la estructura de la consulta con marcadores de posición (`?`). Luego se vincula la entrada del usuario al parámetro. El motor de BD trata el input **estrictamente como valor literal**, nunca como código ejecutable.
+
+**Por qué bloquean ofuscación:** Incluso si un atacante codifica `&#x53;ELECT` en XML y el servidor decodifica `SELECT`, la BD simplemente buscará un producto que literalmente se llame `"SELECT * FROM..."`. No alterará la estructura de la query.
 
 ```csharp
 // ❌ MAL — concatenación de strings
@@ -265,6 +276,26 @@ var users = await context.Users
     .ToListAsync();
 ```
 
+```java
+// ❌ MAL — Java: concatenación directa
+String query = "SELECT * FROM products WHERE category = '"+ input + "'";
+Statement statement = connection.createStatement();
+ResultSet resultSet = statement.executeQuery(query);
+
+// ✅ BIEN — Java: consulta parametrizada
+PreparedStatement statement = connection.prepareStatement(
+    "SELECT * FROM products WHERE category = ?");
+statement.setString(1, input);
+ResultSet resultSet = statement.executeQuery();
+```
+
+### Cadena de consulta: siempre constante rígida
+
+Para que la parametrización funcione, la plantilla de la consulta **debe ser una constante hard-coded**:
+
+- **No debe contener variables** en la definición de la query, de ningún origen.
+- **No confíes en datos "seguros" caso por caso.** Es fácil equivocarse sobre el origen real de un dato, o que un cambio en otra parte del sistema contamin uno que inicialmente parecía seguro.
+
 ### Listas blancas (whitelisting)
 
 Para partes de la query que **no aceptan parámetros** (nombres de tablas, columnas, `ORDER BY`):
@@ -279,6 +310,8 @@ if (!allowed.Contains(userColumn))
     throw new ArgumentException("Columna no permitida");
 var q = $"SELECT * FROM Products ORDER BY {userColumn}";
 ```
+
+**Alternativa:** Lógica condicional en la app — si el usuario selecciona opción 1, ejecutás una query estática; si selecciona 2, otra. El parámetro del usuario nunca toca la sentencia SQL directamente.
 
 ### No confiar en los datos
 
@@ -327,6 +360,7 @@ Si el WAF bloquea `SELECT` y la app acepta XML:
 > Un WAF es una capa extra, no la defensa principal. La única prevención real es el **parámetro** (consultas parametrizadas). Si dependés solo del WAF, eventualmente será evadido.
 
 ## Referencia
+- [[40 - RECURSOS/Guías & Flujos/Guía - SQLi por Motor]]
 - [[40 - RECURSOS/MOCs/MOC - Pentesting]]
 - [[MOC - DevSecOps]]
 - [[40 - RECURSOS/Conceptos/Injection]]
