@@ -3,8 +3,18 @@ type: guía
 state: activa
 created: 2026-08-15
 updated: 2026-08-15
-tags: [github-actions, ci-cd, config, ci-cd, devsecops, api, estudio, git, vulnerabilidades, github-actions, deploy]
-aliases: [GitHub-Actions]
+tags:
+  - github-actions
+  - ci-cd
+  - config
+  - devsecops
+  - api
+  - estudio
+  - git
+  - vulnerabilidades
+  - deploy
+aliases:
+  - GitHub-Actions
 ---
 
 # Guía - GitHub Actions

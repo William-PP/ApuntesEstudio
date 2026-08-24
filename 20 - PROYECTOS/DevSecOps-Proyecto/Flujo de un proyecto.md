@@ -16,17 +16,17 @@ Crear una aplicación funcional aplicando **DevSecOps** de principio a fin, docu
 
 ## Stack Tecnológico
 
-| Capa | Tecnología | Justificación |
-|------|-----------|---------------|
-| Lenguaje | C# | Conocimiento previo del lenguaje; en el futuro pretendo indagar más en otros |
-| Framework | .NET 10 | Ver [[20 - PROYECTOS/DevSecOps-Proyecto/03-Decisiones-Técnicas]] |
-| Base de datos | SQL Server | Ver [[20 - PROYECTOS/DevSecOps-Proyecto/03-Decisiones-Técnicas]] |
-| ORM | Entity Framework Core | Ver [[20 - PROYECTOS/DevSecOps-Proyecto/03-Decisiones-Técnicas]] |
-| Container | Docker | Ver [[20 - PROYECTOS/DevSecOps-Proyecto/03-Decisiones-Técnicas]] |
-| CI/CD | GitHub Actions | Ver [[20 - PROYECTOS/DevSecOps-Proyecto/03-Decisiones-Técnicas]] |
-| Seguridad | Gitleaks, SonarCloud, Trivy, OWASP ZAP | Ver [[20 - PROYECTOS/DevSecOps-Proyecto/03-Decisiones-Técnicas]] |
-| Monitoreo | Prometheus + Grafana | Ver [[20 - PROYECTOS/DevSecOps-Proyecto/03-Decisiones-Técnicas]] |
-| Cloud | Pendiente (último paso) | |
+| Capa          | Tecnología                             | Justificación                                                                |
+| ------------- | -------------------------------------- | ---------------------------------------------------------------------------- |
+| Lenguaje      | C#                                     | Conocimiento previo del lenguaje; en el futuro pretendo indagar más en otros |
+| Framework     | .NET 10                                | Ver [[20 - PROYECTOS/DevSecOps-Proyecto/03-Decisiones-Técnicas]]             |
+| Base de datos | SQL Server                             | Ver [[20 - PROYECTOS/DevSecOps-Proyecto/03-Decisiones-Técnicas]]             |
+| ORM           | Entity Framework Core                  | Ver [[20 - PROYECTOS/DevSecOps-Proyecto/03-Decisiones-Técnicas]]             |
+| Container     | Docker                                 | Ver [[20 - PROYECTOS/DevSecOps-Proyecto/03-Decisiones-Técnicas]]             |
+| CI/CD         | GitHub Actions                         | Ver [[20 - PROYECTOS/DevSecOps-Proyecto/03-Decisiones-Técnicas]]             |
+| Seguridad     | Gitleaks, SonarCloud, Trivy, OWASP ZAP | Ver [[20 - PROYECTOS/DevSecOps-Proyecto/03-Decisiones-Técnicas]]             |
+| Monitoreo     | Prometheus + Grafana                   | Ver [[20 - PROYECTOS/DevSecOps-Proyecto/03-Decisiones-Técnicas]]             |
+| Cloud         | Pendiente (último paso)                |                                                                              |
 
 ## Fases del Proyecto
 

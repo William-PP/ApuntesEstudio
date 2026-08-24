@@ -270,14 +270,14 @@ Tabla de auditoría genérica, alimentada por triggers (§16). No estaba documen
 
 Al comparar este diccionario contra el script de creación real (`script.sql`), se encontraron los siguientes puntos donde la documentación no coincidía con la base de datos:
 
-| Punto | Documentación previa decía | DDL real dice | Impacto |
-|---|---|---|---|
-| `Deportista.tipo_sangre` | varchar(5) | varchar(20) | Bajo — sobredimensionado, no rompe nada, pero desperdicia espacio y permite valores más largos de los que el CHECK permitiría de todas formas |
-| `Torneo.fecha_limite_inscripcion` | Ese nombre de columna | Se llama `fecha_inscripcion` en el DDL real | Medio — cualquier query o documentación que use el nombre viejo falla |
-| `Torneo.direccion` | Nullable (Sí) | `NOT NULL` en el DDL real | Medio — un INSERT que omita `direccion` asumiendo que es opcional falla |
-| `Deportista.activo` | (no señalado antes) | Es `NULL`-able, a diferencia de `Persona.activo` y `Entrenador.activo` que son `NOT NULL` | Bajo — inconsistencia de diseño entre las tres tablas TPT, mismo campo semántico con distinta nulabilidad |
-| `Persona.sexo` CHECK | Documentado como M \| F \| O | DDL real (`CHK_Persona_Sexo`) solo permite M \| F — sin O | Medio — `Categoria.sexo` sí permite O (`CHK_Categoria_Sexo`), inconsistencia entre tablas relacionadas del mismo dominio |
-| `Inscripcion` índice único | Documentado como 3 columnas (sin `id_Entrenador`) | DDL real tiene 4 columnas, incluye `id_Entrenador` | **Alto** — bug de integridad real, ver §10 |
+| Punto                             | Documentación previa decía                        | DDL real dice                                                                             | Impacto                                                                                                                                       |
+| --------------------------------- | ------------------------------------------------- | ----------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------- |
+| `Deportista.tipo_sangre`          | varchar(5)                                        | varchar(20)                                                                               | Bajo — sobredimensionado, no rompe nada, pero desperdicia espacio y permite valores más largos de los que el CHECK permitiría de todas formas |
+| `Torneo.fecha_limite_inscripcion` | Ese nombre de columna                             | Se llama `fecha_inscripcion` en el DDL real                                               | Medio — cualquier query o documentación que use el nombre viejo falla                                                                         |
+| `Torneo.direccion`                | Nullable (Sí)                                     | `NOT NULL` en el DDL real                                                                 | Medio — un INSERT que omita `direccion` asumiendo que es opcional falla                                                                       |
+| `Deportista.activo`               | (no señalado antes)                               | Es `NULL`-able, a diferencia de `Persona.activo` y `Entrenador.activo` que son `NOT NULL` | Bajo — inconsistencia de diseño entre las tres tablas TPT, mismo campo semántico con distinta nulabilidad                                     |
+| `Persona.sexo` CHECK              | Documentado como M \| F \| O                      | DDL real (`CHK_Persona_Sexo`) solo permite M \| F — sin O                                 | Medio — `Categoria.sexo` sí permite O (`CHK_Categoria_Sexo`), inconsistencia entre tablas relacionadas del mismo dominio                      |
+| `Inscripcion` índice único        | Documentado como 3 columnas (sin `id_Entrenador`) | DDL real tiene 4 columnas, incluye `id_Entrenador`                                        | **Alto** — bug de integridad real, ver §10                                                                                                    |
 
 ---
 

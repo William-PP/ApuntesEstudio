@@ -286,6 +286,46 @@ var q = $"SELECT * FROM Products ORDER BY {userColumn}";
 - No mostrar errores de BD al usuario (stack traces = info para el atacante → OWASP A09 Logging Failures / errores).
 - Principio de mínimo privilegio en la BD (nunca conectarse con `sa`).
 
+## Bypass de WAF
+
+El **bypass de WAF** (Web Application Firewall) es el conjunto de técnicas que usa un atacante para que su payload pase sin ser detectado por las defensas del firewall de aplicación.
+
+### Qué hace un WAF y por qué falla
+
+Un WAF inspecciona el tráfico HTTP antes de que llegue a la app. Para detener SQLi, muchos WAF buscan **palabras clave** (`SELECT`, `UNION`, `DELETE`) y **caracteres especiales** (`--`, `'`) en texto plano.
+
+El problema: las implementaciones débiles solo buscan **coincidencia exacta** en el texto crudo de la solicitud.
+
+### Cómo se logra la evasión
+
+La técnica principal es la **ofuscación mediante codificación**:
+
+```
+1. Codificacion:   El atacante codifica caracteres del payload (ej. &#x53; = S)
+2. Inspeccion WAF:  El WAF ve caracteres extraños, no reconoce la palabra clave
+3. Decodificacion:  El servidor decodifica antes de ejecutar → payload se reconstruye
+```
+
+### Ejemplo práctico: Bypass vía XML
+
+Si el WAF bloquea `SELECT` y la app acepta XML:
+
+```xml
+<stockCheck>
+    <productId>123</productId>
+    <storeId>999 &#x53;ELECT * FROM information_schema.tables</storeId>
+</stockCheck>
+```
+
+| Fase | Qué ve | Resultado |
+|------|--------|-----------|
+| **WAF inspecciona** | `&#x53;ELECT` | No reconoce `SELECT` → deja pasar |
+| **Servidor decodifica** | `&#x53;` → `S` | Payload reconstruido: `SELECT * FROM...` |
+| **BD ejecuta** | `999 SELECT * FROM information_schema.tables` | SQLi exitoso |
+
+> [!warning] El WAF no es infalible
+> Un WAF es una capa extra, no la defensa principal. La única prevención real es el **parámetro** (consultas parametrizadas). Si dependés solo del WAF, eventualmente será evadido.
+
 ## Referencia
 - [[40 - RECURSOS/MOCs/MOC - Pentesting]]
 - [[MOC - DevSecOps]]
