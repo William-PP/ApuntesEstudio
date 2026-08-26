@@ -31,100 +31,255 @@ Las vulnerabilidades en autenticación son sumamente graves: permiten a atacante
 | No puedes rastrear quién hizo qué | No hay separación de roles |
 | No puedes controlar permisos | Un atacante con token válido accede a todo |
 
+## Clasificación de Vulnerabilidades de Autenticación
+
+> [!tip] Referencia rápida
+> Tabla maestra de todas las vulnerabilidades de autenticación según las fuentes de PortSwigger Web Security Academy.
+
+| Tipo | Subtipo | Descripción | Fuente |
+|------|---------|-------------|--------|
+| **Contraseñas** | Fuerza bruta | Prueba y error automatizada con wordlists para adivinar credenciales | [1][2][3][4][5] |
+| **Contraseñas** | Enumeración de usuarios | Identificación de usuarios válidos por mensajes de error, códigos HTTP o timing | [1][2][3][4][5] |
+| **Contraseñas** | Protección defectuosa | Bloqueo de cuentas/IP/rate limiting evadible por manipulación de IP, reinicio de contadores o múltiples credenciales por solicitud | [1][3][4][5] |
+| **Contraseñas** | Credential stuffing | Diccionarios masivos de credenciales filtradas, explotando reutilización de contraseñas | [1] |
+| **MFA** | Bypass de 2FA | Omisión del segundo factor por fallas en lógica de acceso o flujo incompleto | [1][2][3][4][5] |
+| **MFA** | Lógica de verificación defectuosa | Sistema no valida que token/MFA pertenezca al usuario que inicia sesión (cookies manipulables) | [2][3][4][5] |
+| **MFA** | Fuerza bruta de códigos | OTP de 4-6 dígitos sin límites estrictos de intentos | [1][3][4][5] |
+| **MFA** | Intercepción SMS / SIM swapping | Códigos vía SMS interceptados o desviados por clonación de SIM | [3] |
+| **OAuth** | Servicio OAuth | Fallas en redirect_uri, scope, registro no verificado, fuga de tokens vía proxy | [6][2][5] |
+| **OAuth** | Aplicación cliente | Flujo implicit sin validación backchannel, ausencia de parámetro state | [6][4] |
+| **OAuth** | Terceros | Problemas de redirección, confianza y validación insuficiente de tokens externos | [1][2][4] |
+| **HTTP Basic** | Exposición de credenciales | Base64 reversible, exposición MITM, sin protección fuerza bruta ni CSRF | [1] |
+| **Sesión persistente** | Cookies "Recuérdame" | Tokens predecibles generados con datos estáticos → secuestro de sesión | [2][5] |
+| **Restablecimiento** | Lógica rota | Parámetros predecibles, tokens sin re-validación POST, reset poisoning vía Host | [2][3][4][5] |
+| **Cambio de contraseña** | Manipulación de parámetros | Campos ocultos para usuario destino permiten cambio arbitrario sin validación de sesión | [2][4][5] |
+
+**Fuentes:**
+[1] Password-based login · [2] Other auth mechanisms · [3] MFA · [4] Secure auth · [5] Auth vulnerabilities · [6] OAuth 2.0 — PortSwigger Web Security Academy
+
 ---
 
 ## 1. Vulnerabilidades en Login Basado en Contraseñas
 
+En aplicaciones web con login basado en contraseñas, el conocimiento de la contraseña se considera prueba suficiente de identidad. Si un atacante obtiene o adivina las credenciales, la seguridad queda completamente comprometida.
+
 ### Ataques de fuerza bruta
 
-Adivinar combinaciones de usuario y contraseña de forma automatizada usando wordlists. Los atacantes optimizan con patrones predecibles (correos, `admin`, `administrator`) y adaptan diccionarios para cumplir políticas comunes (ej. `Mypassword1!`).
+Uso sistemático de prueba y error para adivinar credenciales válidas, automatizado con herramientas y wordlists. Los atacantes no prueban al azar: aplican lógica y conocimiento del comportamiento humano.
 
-### Enumeración de usuarios
+**Fuerza bruta sobre nombres de usuario:**
+- Patrones predecibles: direcciones de correo corporativas (`nombre.apellido@empresa.com`)
+- Cuentas de altos privilegios: `admin`, `administrator`, `root`
+- Exposición pública: perfiles de usuario accesibles sin autenticación, respuestas HTTP que revelan correos de admins o soporte
 
-El sitio revela si un usuario existe, permitiendo generar listas de usuarios válidos. Se detecta por:
+**Fuerza bruta sobre contraseñas:**
+- Los usuarios adaptan contraseñas débiles para cumplir políticas de complejidad: `Mypassword1!`, `Myp4$$w0rd`
+- En rotaciones obligatorias, modificaciones mínimas y secuenciales: `Mypassword1!` → `Mypassword1?` → `Mypassword2!`
+- Los atacantes diseñan diccionarios que simulan estas políticas (letras capitalizadas al inicio, números al final, caracteres especiales predecibles)
 
-| Vector | Ejemplo |
-|--------|---------|
-| **Mensajes de error** | "Usuario no encontrado" vs "Contraseña incorrecta" — incluso diferencias sutiles en HTML oculto |
-| **Códigos HTTP** | 404 para usuario inexistente vs 401 para contraseña mala |
-| **Tiempos de respuesta** | Servidor verifica contraseña solo tras confirmar usuario → запросы con usuarios válidos tardan más |
+### Enumeración de nombres de usuario
 
-> [!tip] Ataque de timing
-> Los atacantes exageran la diferencia enviando contraseñas extremadamente largas que sobrecargan el procesamiento de hashes.
+El atacante identifica si un usuario existe observando cambios en comportamiento o respuestas de la app. Al obtener una lista de usuarios válidos, concentra la fuerza bruta solo en descifrar contraseñas.
 
-### Protección deficiente contra fuerza bruta
+| Vector | Mecanismo |
+|--------|-----------|
+| **Códigos de estado HTTP** | Si usuario válido devuelve código diferente, delata existencia |
+| **Mensajes de error** | Diferencias sutiles incluso cuando se intentan mensajes idénticos — errores tipográficos, caracteres ocultos en HTML |
+| **Tiempos de respuesta** | Servidor verifica contraseña solo si usuario es válido → paso adicional genera desviación temporal |
 
-Muchos sistemas tienen fallos lógicos: restablecen el contador de intentos si el atacante inicia sesión exitosamente con su propia cuenta, insertando credenciales propias a intervalos regulares dentro de la lista de ataques.
+> [!tip] Ataque de timing amplificado
+> Los atacantes exageran la diferencia enviando contraseñas extremadamente largas que requieren tiempo notable de hashing, haciendo el retraso evidente incluso con diferencias de milisegundos.
 
-### Bloqueo de cuentas
+### Fallos en protección contra fuerza bruta
 
-| Ventaja | Desventaja |
-|---------|------------|
-| Evita fuerza bruta dirigida | Facilita enumeración (delata si usuario existe) |
-| | No protege contra credential stuffing (1 intento por cuenta) |
+Las defensas implementadas suelen tener fallos lógicos que los atacantes evadir fácilmente:
+
+**Bloqueo de IP esquivable por inicio de sesión exitoso:**
+Algunas apps restablecen el contador de intentos fallidos de una IP cuando detectan un login exitoso. El atacante inserta sus propias credenciales válidas a intervalos regulares dentro de la lista de ataques, impidiendo que el límite se alcance.
+
+**Bloqueo de cuentas con debilidades:**
+
+| Protección | Vulnerabilidad |
+|------------|----------------|
+| Bloqueo por intentos fallidos | Facilita enumeración si el mensaje es explícito |
+| | No protege contra **password spraying** |
+| | No protege contra **credential stuffing** |
 | | Permite DoS bloqueando masivamente cuentas válidas |
 
-### Rate limiting esquivable
+- **Password spraying (fuerza bruta inversa):** Probar una o dos contraseñas muy comunes en miles de usuarios. Como no se supera el límite por cuenta, el atacante prueba miles sin bloquear ninguna y compromete a aquellos con contraseñas débiles.
+- **Credential stuffing:** Usar pares usuario/contraseña robados de otras filtraciones. Como la gente reutiliza credenciales, cada par se prueba solo una vez → el bloqueo individual nunca se activa.
 
-Los atacantes manipulan cabeceras HTTP para camuflar su IP real o envían múltiples intentos de contraseña en una única solicitud HTTP.
+**Rate limiting esquivable:**
+- Manipulación de cabeceras HTTP para camuflar IP real
+- Múltiples intentos de contraseña en una sola solicitud HTTP (el contador registra un solo envío)
 
 ### Autenticación Básica HTTP
 
-Intrínsecamente insegura: concatena usuario y contraseña y los codifica con Base64 en la cabecera `Authorization`. Sin HTTPS/HSTS, las credenciales se interceptan fácilmente. Carece de controles contra fuerza bruta y es vulnerable a CSRF.
+Estándar antiguo que envía credenciales en cada solicitud: `Authorization: Basic base64(username:password)`. Intrínsecamente insegura:
+
+| Vulnerabilidad | Detalle |
+|----------------|---------|
+| **Codificación reversible** | Base64 no es cifrado; cualquiera revierte para obtener texto claro |
+| **Exposición en tránsito** | Sin HTTPS/HSTS, atacante intercepta vía MITM |
+| **Sin controles de fuerza bruta** | Rara vez cuenta con protección integrada |
+| **Vulnerable a CSRF** | Carece de mecanismos nativos contra falsificación de solicitudes |
+| **Reutilización de credenciales** | Si el atacante vulnera una página poco interesante, reutiliza credenciales para acceder a secciones confidenciales
 
 ---
 
 ## 2. Vulnerabilidades en MFA/2FA
 
-El MFA es sustancialmente más seguro, pero su seguridad depende de la correcta implementación:
+El MFA se ha convertido en estándar de seguridad crítico para mitigar debilidades de contraseñas. Al exigir al menos dos factores de naturaleza distinta — **algo que sabes** + **algo que tienes** — se reduce drásticamente la probabilidad de compromiso. Pero una implementación defectuosa puede eludirse tan fácilmente como un login sin MFA.
 
-### El "falso" segundo factor
+### MFA real vs. falso
 
-El uso de códigos enviados por correo **no constituye un segundo factor genuino**: el atacante que conozca la contraseña probablemente pueda vulnerar la del correo, verificando el factor de conocimiento en dos pasos de manera redundante.
+Para que un sistema sea verdaderamente multifactorial, debe validar factores de **naturaleza diferente**:
 
-### Códigos vía SMS
+| Tipo | Ejemplo | Seguridad |
+|------|---------|-----------|
+| **MFA Real** | Contraseña + código generado localmente en teléfono (Google Authenticator) | Factor conocimiento + posesión genuinos |
+| **MFA Falso** | Contraseña + código enviado por correo electrónico | Mismo factor (conocimiento) verificado dos veces — si comprometen la contraseña del correo, todo cae |
 
-Transmitir códigos por SMS expone a intercepciones en tránsito o **SIM swapping**. Es preferible aplicaciones generadoras locales (Google Authenticator) o tokens físicos (YubiKey).
+> [!warning] El correo no es un segundo factor
+> Acceder al código de verificación depende de conocer las credenciales del correo. Si la contraseña del correo es idéntica o similar a la de la aplicación, el esquema de seguridad cae de forma inmediata.
 
-### Bypass simple de 2FA
+### Canales de transmisión de códigos
 
-Si la verificación de contraseña y el código ocurren en páginas independientes, el usuario queda en estado pre-autenticado. Muchas aplicaciones permiten navegar directamente a URLs internas sin que el backend verifique si completó el segundo factor.
+| Canal | Mecanismo | Riesgo |
+|-------|-----------|--------|
+| **Aplicación local** (Google Authenticator) | Código generado en el dispositivo sin transmisión | Mínimo — opción más segura |
+| **Token físico** (YubiKey, token RSA) | Dispositivo de propósito específico | Mínimo — hardware dedicado |
+| **SMS** | Código transmitido por red de telecomunicaciones | **Intercepción** de tráfico SMS + **SIM swapping** (atacante engaña a la compañía telefónica para obtener SIM con número de víctima) |
 
-### Lógica de verificación rota
+### Vulnerabilidad 1: Bypass por flujo incompleto
 
-Si la app no verifica que quien proporciona el código 2FA es el mismo que ingresó la contraseña:
+En muchas apps, el login se estructura en pasos secuenciales independientes: primero contraseña, luego código 2FA en pantalla separada.
+
+**La falla:** El servidor coloca al usuario en estado "pre-autenticado" tras validar la contraseña, **antes** de recibir el código. Si no hay controles estrictos que restrinjan acceso hasta completar ambos pasos:
 
 ```
-1. Atacante inicia sesión con SUS credenciales
-2. Modifica cookie de cuenta (account=victima) al enviar código 2FA
-3. Si sistema procesa código para la cuenta de la cookie
-4. Y no hay límites estrictos de intentos sobre el código (4-6 dígitos)
-5. → Fuerza bruta sobre el código → acceso a cuenta de víctima
+1. Atacante conoce contraseña de víctima
+2. Ingresa contraseña → servidor marca como "pre-autenticado"
+3. Ignora pantalla de 2FA
+4. Navega directamente a /my-account o /dashboard
+5. → Sistema carga recurso asumiendo login completo
 ```
+
+### Vulnerabilidad 2: Lógica de verificación rota
+
+Ocurre cuando la app **no verifica** que quien envía el código 2FA sea el mismo que ingresó la contraseña.
+
+**Flujo típico del fallo:**
+
+```
+POST /login-steps/first
+→ username=carlos&password=qwerty
+→ Set-Cookie: account=carlos
+
+GET /login-steps/second
+→ Cookie: account=carlos
+
+POST /login-steps/second
+→ Cookie: account=carlos & verification-code=123456
+```
+
+**Explotación:**
+
+```
+1. Atacante inicia sesión con SUS credenciales legítimas
+2. Recibe cookie de sesión activa
+3. Al paso dos, intercepta petición y modifica cookie:
+   Cookie: account=usuario_victima
+4. Backend usa ciegamente el valor de la cookie alterada
+5. Intenta validar código contra cuenta de víctima
+6. → Fuerza bruta sobre código (4-6 dígitos) → acceso sin conocer contraseña
+```
+
+### Vulnerabilidad 3: Fuerza bruta sobre códigos 2FA
+
+Los códigos temporales son números cortos de 4 o 6 dígitos — el espacio de búsqueda es extremadamente pequeño:
+
+| Dígitos | Combinaciones | Tiempo estimado (1000/s) |
+|---------|---------------|--------------------------|
+| 4 | 10,000 | ~10 segundos |
+| 6 | 1,000,000 | ~17 minutos |
+
+**Defensas ineficaces:** Bloquear sesión tras N intentos fallidos es fácilmente evadible con automatización avanzada.
+
+**Evasión con Burp Intruder + Macros:**
+```
+1. Configurar macro que repita el flujo completo en cada intento
+2. Macro: login con contraseña → extraer cookie → ir a paso 2FA → probar código
+3. Si sesión se cierra tras intento fallido → macro reinicia ciclo automáticamente
+4. Turbo Intruder ejecuta esto a gran velocidad → rompe código antes de que expire
+```
+
+### Principio fundamental para asegurar 2FA
+
+> [!warning] Re-validación en cada paso
+> El backend no debe dar nada por sentado en transiciones entre páginas. Debe re-validar rigurosamente en **cada paso intermedio** que la identidad del usuario que inició la autenticación coincide exactamente con la que procesa y finaliza el flujo, bloqueando cualquier intento de alteración de cookies o parámetros de sesión.
 
 ---
 
 ## 3. Vulnerabilidades en Gestión de Cuentas
 
-### Cookies de "Recuérdame"
+Además del login principal, las apps proporcionan funcionalidades complementarias (mantener sesión, restablecer, cambiar contraseña). Los desarrolladores suelen proteger el formulario de login pero descuidan estas funciones auxiliares. Un atacante puede registrar una cuenta propia para estudiar el comportamiento de estas páginas sin restricciones.
 
-Si las cookies se generan concatenando valores predecibles (usuario, timestamp, contraseña) y se codifican con Base64, un atacante examinando su propia cookie deduce la fórmula y genera cookies falsas. Incluso con hashes, la falta de salt permite fuerza bruta local con bases de datos de hashes.
+### Cookies de "Recuérdame" (Sesión Persistente)
+
+La opción "Recordarme" genera un token persistente en cookie. Poseer esta cookie permite saltarse completamente la autenticación interactiva.
+
+| Vulnerabilidad | Mecanismo |
+|----------------|-----------|
+| **Cookies basadas en datos estáticos** | Token construido concatenando nombre de usuario, timestamp o incluso la contraseña. Atacante registra cuenta, inspecciona su cookie, deduce la fórmula y genera cookies falsas por fuerza bruta |
+| **Base64 o sin salt** | Base64 es reversible trivialmente. Incluso con hash (MD5/SHA), sin salt el atacante busca hashes en bases de datos públicas de contraseñas comunes — evadiendo rate limiting del sitio (las cookies no se contabilizan en límites de login) |
+| **Robo vía XSS** | Si el sitio es vulnerable a XSS, atacante roba cookie "remember me" de víctima activa y analiza su estructura para deducir la fórmula general |
+| **Frameworks mal configurados** | El formato exacto de la cookie puede estar documentado públicamente en repositorios de código abierto |
 
 ### Restablecimiento de contraseñas
 
+Este flujo opera sin validación usual de contraseña, lo que lo hace intrínsecamente peligroso.
+
+#### A. Envío de contraseñas por correo
+
 | Vulnerabilidad | Consecuencia |
 |----------------|-------------|
-| Contraseñas generadas en texto claro por email | Interceptación en infraestructura de correo |
-| Parámetros predecibles en URL (`?user=victima`) | Cambio de contraseña de terceros sin restricción |
-| Token de alta entropía pero sin re-validación POST | Atacante elimina parámetro token y fuerza cambio |
-| URL generada dinámica vía middleware | Password reset poisoning → redirige token a servidor del atacante |
+| **Contraseña en texto claro** | Si la app puede enviar la contraseña actual, significa que se almacena sin hashing — falla masiva |
+| **Contraseña temporal por correo** | Correo no es canal cifrado; intercepción vía MITM. Bandejas sincronizadas en múltiples dispositivos incrementan exposición |
+
+#### B. Restablecimiento vía URL
+
+**Parámetros predecibles:**
+```
+http://vulnerable-site.com/reset?user=victim
+```
+Atacante cambia `user` por víctima → accede directamente al formulario de cambio.
+
+**Fallo de verificación POST:**
+```
+1. Token de alta entropía generado: ?token=a0ba0d1cb...
+2. Backend valida token al cargar formulario (GET) ✓
+3. Backend NO valida token al enviar formulario (POST) ✗
+4. Atacante carga formulario con su token legítimo
+5. Al enviar (POST), modifica o elimina parámetro token
+6. → Servidor aplica cambio en cuenta arbitraria
+```
 
 > [!warning] Token robusto no es suficiente
 > El token debe ser de alta entropía, temporizado y destruirse tras usarse. Pero además debe re-validarse al cargar el formulario Y al procesar el cambio final.
 
+**Password reset poisoning:**
+Si la URL de restablecimiento se genera dinámicamente usando cabeceras manipulables (ej. `Host` header vía middleware), atacante altera la solicitud para que el enlace enviado a la víctima apunte a un servidor controlado por el atacante, capturando el token.
+
 ### Cambio de contraseña
 
-Si el formulario no valida la contraseña actual o usa campos ocultos para identificar cuenta destino, un atacante manipula la petición HTTP para cambiar contraseñas arbitrariamente o enumerar usuarios.
+El formulario de cambio típicamente requiere contraseña actual y nueva clave dos veces. Internamente usa los mismos componentes que el login, heredando las mismas debilidades.
+
+| Vulnerabilidad | Mecanismo |
+|----------------|-----------|
+| **Campos ocultos para cuenta destino** | `<input type="hidden" name="username" value="victima">` — atacante modifica campo, backend confía a ciegas → enumeración o cambio arbitrario |
+| **Sin validación de sesión** | Si el endpoint procesa cambios sin verificar autenticación activa, cualquier petición HTTP directa puede cambiar contraseñas |
+| **Fuerza bruta heredada** | La validación de contraseña actual hereda las debilidades de timing y fuerza bruta del endpoint de login
 
 ---
 
