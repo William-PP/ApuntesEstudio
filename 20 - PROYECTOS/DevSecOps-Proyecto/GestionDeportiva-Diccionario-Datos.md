@@ -86,19 +86,19 @@ Entidad asociativa débil con histórico temporal entre Entrenador y Deportista.
 
 ## 5. Torneo
 
-| Atributo | Tipo | Llave | Nulo | Nota |
-|---|---|---|---|---|
-| id_torneo | int | **PK** (IDENTITY) | No | |
-| nombre | varchar(120) | | No | |
-| descripcion | varchar(max) | | Sí | |
-| fecha_inicio | date | | No | CHECK: fecha_fin >= fecha_inicio |
-| fecha_fin | date | | No | |
-| fecha_inscripcion | date | | Sí | **Nombre real en DDL** (la documentación previa lo llamaba `fecha_limite_inscripcion`). CHECK: `fecha_inicio >= fecha_inscripcion` |
-| sede | varchar(150) | | Sí | |
-| direccion | varchar(200) | | **No** | DDL real la marca NOT NULL (documentación previa la tenía como opcional) |
-| organizador | varchar(120) | | Sí | |
-| estado | varchar(40) | | No | DEFAULT 'BORRADOR'. CHECK: BORRADOR \| INSCRIPCIONES_ABIERTAS \| INSCRIPCIONES_CERRADAS \| EN_CURSO \| FINALIZADO \| CANCELADO \| SUSPENDIDO |
-| fecha_creacion | datetime2 | | No | DEFAULT GETDATE() |
+| Atributo          | Tipo         | Llave             | Nulo   | Nota                                                                                                                                         |
+| ----------------- | ------------ | ----------------- | ------ | -------------------------------------------------------------------------------------------------------------------------------------------- |
+| id_torneo         | int          | **PK** (IDENTITY) | No     |                                                                                                                                              |
+| nombre            | varchar(120) |                   | No     |                                                                                                                                              |
+| descripcion       | varchar(max) |                   | Sí     |                                                                                                                                              |
+| fecha_inicio      | date         |                   | No     | CHECK: fecha_fin >= fecha_inicio                                                                                                             |
+| fecha_fin         | date         |                   | No     |                                                                                                                                              |
+| fecha_inscripcion | date         |                   | Sí     | **Nombre real en DDL** (la documentación previa lo llamaba `fecha_limite_inscripcion`). CHECK: `fecha_inicio >= fecha_inscripcion`           |
+| sede              | varchar(150) |                   | Sí     |                                                                                                                                              |
+| direccion         | varchar(200) |                   | **No** | DDL real la marca NOT NULL (documentación previa la tenía como opcional)                                                                     |
+| organizador       | varchar(120) |                   | Sí     |                                                                                                                                              |
+| estado            | varchar(40)  |                   | No     | DEFAULT 'BORRADOR'. CHECK: BORRADOR \| INSCRIPCIONES_ABIERTAS \| INSCRIPCIONES_CERRADAS \| EN_CURSO \| FINALIZADO \| CANCELADO \| SUSPENDIDO |
+| fecha_creacion    | datetime2    |                   | No     | DEFAULT GETDATE()                                                                                                                            |
 
 ---
 
@@ -194,13 +194,13 @@ Acto de inscribirse, previo al torneo. Sin campo de resultado/medalla (ver tabla
 
 Resultado obtenido, posterior al torneo. Relación 1:0..1 con Inscripcion.
 
-| Atributo | Tipo | Llave | Nulo | Nota |
-|---|---|---|---|---|
-| id_resultado | int | **PK** (IDENTITY) | No | |
-| id_inscripcion | int | **FK** → Inscripcion.id_inscripcion, UQ | No | UNIQUE garantiza relación 1:1 |
-| medalla | varchar(20) | | Sí | CHECK: Oro \| Plata \| Bronce \| Diploma \| NULL |
-| observaciones | varchar(max) | | Sí | Comentarios del jurado, incidencias, motivo de descalificación |
-| fecha_registro | datetime2 | | No | DEFAULT GETDATE() |
+| Atributo       | Tipo         | Llave                                   | Nulo | Nota                                                           |
+| -------------- | ------------ | --------------------------------------- | ---- | -------------------------------------------------------------- |
+| id_resultado   | int          | **PK** (IDENTITY)                       | No   |                                                                |
+| id_inscripcion | int          | **FK** → Inscripcion.id_inscripcion, UQ | No   | UNIQUE garantiza relación 1:1                                  |
+| medalla        | varchar(20)  |                                         | Sí   | CHECK: Oro \| Plata \| Bronce \| Diploma \| NULL               |
+| observaciones  | varchar(max) |                                         | Sí   | Comentarios del jurado, incidencias, motivo de descalificación |
+| fecha_registro | datetime2    |                                         | No   | DEFAULT GETDATE()                                              |
 
 > **Nota de diseño:** Resultado no tiene FK directa a Torneo, Deportista ni Categoria — esa información se navega vía Resultado → Inscripcion → resto del modelo. Duplicar esas FK violaría 3FN.
 

@@ -36,23 +36,23 @@ Las vulnerabilidades en autenticación son sumamente graves: permiten a atacante
 > [!tip] Referencia rápida
 > Tabla maestra de todas las vulnerabilidades de autenticación según las fuentes de PortSwigger Web Security Academy.
 
-| Tipo | Subtipo | Descripción | Fuente |
-|------|---------|-------------|--------|
-| **Contraseñas** | Fuerza bruta | Prueba y error automatizada con wordlists para adivinar credenciales | [1][2][3][4][5] |
-| **Contraseñas** | Enumeración de usuarios | Identificación de usuarios válidos por mensajes de error, códigos HTTP o timing | [1][2][3][4][5] |
-| **Contraseñas** | Protección defectuosa | Bloqueo de cuentas/IP/rate limiting evadible por manipulación de IP, reinicio de contadores o múltiples credenciales por solicitud | [1][3][4][5] |
-| **Contraseñas** | Credential stuffing | Diccionarios masivos de credenciales filtradas, explotando reutilización de contraseñas | [1] |
-| **MFA** | Bypass de 2FA | Omisión del segundo factor por fallas en lógica de acceso o flujo incompleto | [1][2][3][4][5] |
-| **MFA** | Lógica de verificación defectuosa | Sistema no valida que token/MFA pertenezca al usuario que inicia sesión (cookies manipulables) | [2][3][4][5] |
-| **MFA** | Fuerza bruta de códigos | OTP de 4-6 dígitos sin límites estrictos de intentos | [1][3][4][5] |
-| **MFA** | Intercepción SMS / SIM swapping | Códigos vía SMS interceptados o desviados por clonación de SIM | [3] |
-| **OAuth** | Servicio OAuth | Fallas en redirect_uri, scope, registro no verificado, fuga de tokens vía proxy | [6][2][5] |
-| **OAuth** | Aplicación cliente | Flujo implicit sin validación backchannel, ausencia de parámetro state | [6][4] |
-| **OAuth** | Terceros | Problemas de redirección, confianza y validación insuficiente de tokens externos | [1][2][4] |
-| **HTTP Basic** | Exposición de credenciales | Base64 reversible, exposición MITM, sin protección fuerza bruta ni CSRF | [1] |
-| **Sesión persistente** | Cookies "Recuérdame" | Tokens predecibles generados con datos estáticos → secuestro de sesión | [2][5] |
-| **Restablecimiento** | Lógica rota | Parámetros predecibles, tokens sin re-validación POST, reset poisoning vía Host | [2][3][4][5] |
-| **Cambio de contraseña** | Manipulación de parámetros | Campos ocultos para usuario destino permiten cambio arbitrario sin validación de sesión | [2][4][5] |
+| Tipo                     | Subtipo                           | Descripción                                                                                                                        | Fuente          |
+| ------------------------ | --------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------- | --------------- |
+| **Contraseñas**          | Fuerza bruta                      | Prueba y error automatizada con wordlists para adivinar credenciales                                                               | [1][2][3][4][5] |
+| **Contraseñas**          | Enumeración de usuarios           | Identificación de usuarios válidos por mensajes de error, códigos HTTP o timing                                                    | [1][2][3][4][5] |
+| **Contraseñas**          | Protección defectuosa             | Bloqueo de cuentas/IP/rate limiting evadible por manipulación de IP, reinicio de contadores o múltiples credenciales por solicitud | [1][3][4][5]    |
+| **Contraseñas**          | Credential stuffing               | Diccionarios masivos de credenciales filtradas, explotando reutilización de contraseñas                                            | [1]             |
+| **MFA**                  | Bypass de 2FA                     | Omisión del segundo factor por fallas en lógica de acceso o flujo incompleto                                                       | [1][2][3][4][5] |
+| **MFA**                  | Lógica de verificación defectuosa | Sistema no valida que token/MFA pertenezca al usuario que inicia sesión (cookies manipulables)                                     | [2][3][4][5]    |
+| **MFA**                  | Fuerza bruta de códigos           | OTP de 4-6 dígitos sin límites estrictos de intentos                                                                               | [1][3][4][5]    |
+| **MFA**                  | Intercepción SMS / SIM swapping   | Códigos vía SMS interceptados o desviados por clonación de SIM                                                                     | [3]             |
+| **OAuth**                | Servicio OAuth                    | Fallas en redirect_uri, scope, registro no verificado, fuga de tokens vía proxy                                                    | [6][2][5]       |
+| **OAuth**                | Aplicación cliente                | Flujo implicit sin validación backchannel, ausencia de parámetro state                                                             | [6][4]          |
+| **OAuth**                | Terceros                          | Problemas de redirección, confianza y validación insuficiente de tokens externos                                                   | [1][2][4]       |
+| **HTTP Basic**           | Exposición de credenciales        | Base64 reversible, exposición MITM, sin protección fuerza bruta ni CSRF                                                            | [1]             |
+| **Sesión persistente**   | Cookies "Recuérdame"              | Tokens predecibles generados con datos estáticos → secuestro de sesión                                                             | [2][5]          |
+| **Restablecimiento**     | Lógica rota                       | Parámetros predecibles, tokens sin re-validación POST, reset poisoning vía Host                                                    | [2][3][4][5]    |
+| **Cambio de contraseña** | Manipulación de parámetros        | Campos ocultos para usuario destino permiten cambio arbitrario sin validación de sesión                                            | [2][4][5]       |
 
 **Fuentes:**
 [1] Password-based login · [2] Other auth mechanisms · [3] MFA · [4] Secure auth · [5] Auth vulnerabilities · [6] OAuth 2.0 — PortSwigger Web Security Academy
