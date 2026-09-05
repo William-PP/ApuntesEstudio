@@ -3,16 +3,16 @@ type: documento
 state: activa
 priority: alta
 created: 2026-08-30
-updated: 2026-08-30
-related: [SIMAD-ITM, GestionDeportiva]
-tags: [simad, narrativa, requisitos, itm, proyecto]
-aliases: [Narrativa SIMAD-ITM, Requisitos Sistema Integral ITM]
+updated: 2026-09-05
+related: [SIMAD, GestionDeportiva]
+tags: [simad, gestion-deportiva, narrativa, requisitos]
+aliases: [Narrativa SIMAD, Requisitos Sistema Integral SIMAD]
 ---
 
-# Narrativa — Sistema Integral SIMAD-ITM
+# Narrativa — Sistema Integral SIMAD
 
 > [!info] Contexto
-> Narrativa verbal del **sistema integral SIMAD-ITM**, enfocada en su módulo deportivo. Documento compartido con el proyecto hermano [[20 - PROYECTOS/GestionDeportiva/GestionDeportiva]].
+> Narrativa verbal del **sistema integral SIMAD**, enfocada en su módulo deportivo. Documento compartido con el proyecto hermano [[20 - PROYECTOS/GestionDeportiva/GestionDeportiva]].
 
 ---
 
@@ -166,9 +166,10 @@ La solución es un **Sistema de Gestión Deportiva** centralizado y accesible co
 
 ## Referencia
 
-- [[20 - PROYECTOS/SIMAD-ITM/SIMAD-ITM]] — epicentro del sistema integral
+- [[20 - PROYECTOS/SIMAD/SIMAD]] — epicentro del sistema integral
 - [[20 - PROYECTOS/GestionDeportiva/GestionDeportiva]] — módulo deportivo, proyecto hermano
-- [[20 - PROYECTOS/SIMAD-ITM/Diccionario de Entidades - SIMAD-ITM]] — modelo de datos que implementa estos requisitos
+- [[20 - PROYECTOS/SIMAD/Diccionario de Entidades - SIMAD]] — modelo de datos que implementa estos requisitos
 - [[Autenticación-y-Autorización]] — requisitos RNF-006 y roles RU-001 a RU-004
+- [[20 - PROYECTOS/SIMAD/Etapa 1/Acta de Constitución - SIMAD]] — charter del proyecto (Etapa 1)
 
-#simad #gestion-deportiva #narrativa #requisitos #itm #deporte
+#simad #gestion-deportiva #narrativa #requisitos #deporte #etapa-1

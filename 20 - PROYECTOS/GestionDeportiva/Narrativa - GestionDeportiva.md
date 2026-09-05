@@ -3,16 +3,16 @@ type: documento
 state: activa
 priority: alta
 created: 2026-08-30
-updated: 2026-08-30
-related: [GestionDeportiva, SIMAD-ITM]
-tags: [gestion-deportiva, narrativa, requisitos, itm, proyecto]
-aliases: [Narrativa GestionDeportiva, Requisitos Sistema Deportivo ITM]
+updated: 2026-09-05
+related: [GestionDeportiva, SIMAD]
+tags: [gestion-deportiva, narrativa, requisitos, simad, proyecto]
+aliases: [Narrativa GestionDeportiva, Requisitos Sistema Deportivo]
 ---
 
-# Narrativa — Sistema de Gestión Deportiva ITM
+# Narrativa — Sistema de Gestión Deportiva
 
 > [!info] Contexto
-> Narrativa verbal del **módulo deportivo** del sistema integral SIMAD-ITM. Documento compartido con el proyecto hermano [[20 - PROYECTOS/SIMAD-ITM/SIMAD-ITM]].
+> Narrativa verbal del **módulo deportivo** del sistema integral SIMAD. Documento compartido con el proyecto hermano [[20 - PROYECTOS/SIMAD/SIMAD]].
 
 ---
 
@@ -167,8 +167,8 @@ La solución es un **Sistema de Gestión Deportiva** centralizado y accesible co
 ## Referencia
 
 - [[20 - PROYECTOS/GestionDeportiva/GestionDeportiva]] — epicentro del módulo deportivo
-- [[20 - PROYECTOS/SIMAD-ITM/SIMAD-ITM]] — proyecto hermano del sistema integral
+- [[20 - PROYECTOS/SIMAD/SIMAD]] — proyecto hermano del sistema integral
 - [[20 - PROYECTOS/GestionDeportiva/Diccionario de Entidades - GestionDeportiva]] — modelo de datos que implementa estos requisitos
 - [[Autenticación-y-Autorización]] — requisitos RNF-006 y roles RU-001 a RU-004
 
-#gestion-deportiva #simad #narrativa #requisitos #itm #deporte
+#gestion-deportiva #simad #narrativa #requisitos #deporte

@@ -3,16 +3,16 @@ type: documento
 state: activa
 priority: alta
 created: 2026-08-30
-updated: 2026-08-30
-related: [GestionDeportiva, SIMAD-ITM]
-tags: [gestion-deportiva, diccionario-datos, base-datos, modelo-relacional, itm]
+updated: 2026-09-05
+related: [GestionDeportiva, SIMAD]
+tags: [gestion-deportiva, diccionario-datos, base-datos, modelo-relacional, simad]
 aliases: [Diccionario GestionDeportiva, Diccionario de Entidades GestionDeportiva]
 ---
 
-# Diccionario de Entidades — Sistema de Gestión Deportiva ITM
+# Diccionario de Entidades — Sistema de Gestión Deportiva
 
 > [!info] Contexto
-> Diccionario del modelo relacional del **módulo deportivo** de SIMAD-ITM, organizado en 5 niveles de funcionalidad. Documento compartido con el proyecto hermano [[20 - PROYECTOS/SIMAD-ITM/SIMAD-ITM]].
+> Diccionario del modelo relacional del **módulo deportivo** de SIMAD, organizado en 5 niveles de funcionalidad. Documento compartido con el proyecto hermano [[20 - PROYECTOS/SIMAD/SIMAD]].
 
 ---
 
@@ -870,8 +870,8 @@ Gestiona los avisos que el sistema envía a los usuarios por correo, WhatsApp o 
 ## Referencia
 
 - [[20 - PROYECTOS/GestionDeportiva/GestionDeportiva]] — epicentro del módulo deportivo
-- [[20 - PROYECTOS/SIMAD-ITM/SIMAD-ITM]] — proyecto hermano del sistema integral
+- [[20 - PROYECTOS/SIMAD/SIMAD]] — proyecto hermano del sistema integral
 - [[20 - PROYECTOS/GestionDeportiva/Narrativa - GestionDeportiva]] — requisitos que este modelo implementa
 - [[Bases-Datos-Vulnerabilidades]] — consideraciones de seguridad del modelo de datos
 
-#gestion-deportiva #simad #diccionario-datos #base-datos #modelo-relacional #itm
+#gestion-deportiva #simad #diccionario-datos #base-datos #modelo-relacional

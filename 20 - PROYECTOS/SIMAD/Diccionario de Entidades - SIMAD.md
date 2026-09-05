@@ -3,16 +3,16 @@ type: documento
 state: activa
 priority: alta
 created: 2026-08-30
-updated: 2026-08-30
-related: [SIMAD-ITM, GestionDeportiva]
-tags: [simad, diccionario-datos, base-datos, modelo-relacional, itm]
-aliases: [Diccionario SIMAD-ITM, Diccionario de Entidades SIMAD-ITM]
+updated: 2026-09-05
+related: [SIMAD, GestionDeportiva]
+tags: [simad, diccionario-datos, base-datos, modelo-relacional]
+aliases: [Diccionario SIMAD, Diccionario de Entidades SIMAD]
 ---
 
-# Diccionario de Entidades — Sistema Integral SIMAD-ITM
+# Diccionario de Entidades — Sistema Integral SIMAD
 
 > [!info] Contexto
-> Diccionario del modelo relacional del **sistema integral SIMAD-ITM**, cuyo módulo deportivo implementa las entidades aquí descritas. Documento compartido con el proyecto hermano [[20 - PROYECTOS/GestionDeportiva/GestionDeportiva]].
+> Diccionario del modelo relacional del **sistema integral SIMAD**, cuyo módulo deportivo implementa las entidades aquí descritas. Documento compartido con el proyecto hermano [[20 - PROYECTOS/GestionDeportiva/GestionDeportiva]].
 
 ---
 
@@ -863,15 +863,15 @@ Gestiona los avisos que el sistema envía a los usuarios por correo, WhatsApp o 
 > [!note] Diagrama de clases (UML)
 > Versión visual del modelo del módulo deportivo en las siguientes imágenes (`.png` / `.svg`):
 >
-> `![](Diagrama de clases (SIMAD-ITM).png)`
+> `![](Diagrama de clases (SIMAD).png)`
 
 ---
 
 ## Referencia
 
-- [[20 - PROYECTOS/SIMAD-ITM/SIMAD-ITM]] — epicentro del sistema integral
+- [[20 - PROYECTOS/SIMAD/SIMAD]] — epicentro del sistema integral
 - [[20 - PROYECTOS/GestionDeportiva/GestionDeportiva]] — módulo deportivo, proyecto hermano
-- [[20 - PROYECTOS/SIMAD-ITM/Narrativa - SIMAD-ITM]] — requisitos que este modelo implementa
+- [[20 - PROYECTOS/SIMAD/Etapa 1/Narrativa - SIMAD]] — requisitos que este modelo implementa
 - [[Bases-Datos-Vulnerabilidades]] — consideraciones de seguridad del modelo de datos
 
-#simad #gestion-deportiva #diccionario-datos #base-datos #modelo-relacional #itm
+#simad #gestion-deportiva #diccionario-datos #base-datos #modelo-relacional

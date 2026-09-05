@@ -3,16 +3,16 @@ type: proyecto
 state: en-progreso
 priority: alta
 created: 2026-08-30
-updated: 2026-08-30
-related: [SIMAD-ITM, DevSecOps-Proyecto]
-tags: [proyecto, gestion-deportiva, itm, deporte, base-datos, seguridad]
-aliases: [GestionDeportiva, Sistema de Gestion Deportiva ITM, GestionDeportiva ITM]
+updated: 2026-09-05
+related: [SIMAD, DevSecOps-Proyecto]
+tags: [proyecto, gestion-deportiva, simad, deporte, base-datos, seguridad]
+aliases: [GestionDeportiva, Sistema de Gestion Deportiva SIMAD, Modulo Deportivo]
 ---
 
 # GestionDeportiva
 
-> [!info] Módulo deportivo del sistema integral SIMAD-ITM
-> GestionDeportiva es el módulo de gestión deportiva del Instituto Tecnológico Metropolitano de Medellín. Centraliza datos de deportistas, entrenamiento, bienestar, competencias y restricciones médicas que hoy están dispersos en hojas de cálculo, papel y memoria de los entrenadores.
+> [!info] Módulo deportivo del sistema integral SIMAD
+> GestionDeportiva es el módulo de gestión deportiva del sistema **SIMAD**. Centraliza datos de deportistas, entrenamiento, bienestar, competencias y restricciones médicas que hoy están dispersos en hojas de cálculo, papel y memoria de los entrenadores.
 
 ## Objetivo
 
@@ -20,11 +20,11 @@ Construir un sistema centralizado que captura la complejidad real del entrenamie
 
 ## Proyectos relacionados
 
-Este módulo es hermano de **[[SIMAD-ITM]]**: ambos comparten la misma documentación de base (narrativa de requisitos y diccionario de entidades).
+Este módulo es hermano de **[[SIMAD]]**: ambos comparten la misma documentación de base (narrativa de requisitos y diccionario de entidades).
 
 | Proyecto | Rol |
 |----------|-----|
-| [[SIMAD-ITM]] | Proyecto hermano — sistema integral |
+| [[SIMAD]] | Proyecto hermano — sistema integral |
 | [[Flujo de un proyecto]] | DevSecOps-Proyecto (judo, proyecto de práctica) |
 
 ## Stack Tecnológico
@@ -56,9 +56,9 @@ Este módulo es hermano de **[[SIMAD-ITM]]**: ambos comparten la misma documenta
 
 ## Referencia
 
-- [[20 - PROYECTOS/SIMAD-ITM/SIMAD-ITM]] — proyecto hermano, misma base documental
+- [[20 - PROYECTOS/SIMAD/SIMAD]] — proyecto hermano, misma base documental
 - [[20 - PROYECTOS/GestionDeportiva/Narrativa - GestionDeportiva]] — requisitos del sistema
 - [[20 - PROYECTOS/GestionDeportiva/Diccionario de Entidades - GestionDeportiva]] — modelo de datos
 - [[Flujo de un proyecto]] — contexto original del sistema deportivo
 
-#proyecto #gestion-deportiva #itm #deporte #seguridad
+#proyecto #gestion-deportiva #simad #deporte #seguridad
