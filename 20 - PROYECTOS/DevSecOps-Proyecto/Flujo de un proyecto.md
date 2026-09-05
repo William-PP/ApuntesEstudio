@@ -27,6 +27,7 @@ Crear una aplicación funcional aplicando **DevSecOps** de principio a fin, docu
 | Seguridad     | Gitleaks, SonarCloud, Trivy, OWASP ZAP | Ver [[20 - PROYECTOS/DevSecOps-Proyecto/03-Decisiones-Técnicas]]             |
 | Monitoreo     | Prometheus + Grafana                   | Ver [[20 - PROYECTOS/DevSecOps-Proyecto/03-Decisiones-Técnicas]]             |
 | Cloud         | Pendiente (último paso)                |                                                                              |
+|               |                                        |                                                                              |
 
 ## Fases del Proyecto
 

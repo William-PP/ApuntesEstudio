@@ -52,6 +52,7 @@ aliases: [Devsecops]
 | --- | ------------ | --------------------------------- | ------ |
 | 11  | User-Secrets | Gestión de secretos en desarrollo | 10 min |
 | 12  | Health-Checks | Liveness, Readiness, config .NET  | 10 min |
+| 13  | Pruebas-de-Software | Ciclo de pruebas, Plan de Pruebas, ISTQB, IEEE | 25 min |
 
 > **Prerequisito para:** Docker.
 
@@ -63,11 +64,11 @@ aliases: [Devsecops]
 
 | # | Nota | QUÉ aprenderás | Tiempo |
 |---|------|---------------|--------|
-| 13 | Fundamentos | Conceptos, comandos, multi-stage | 20 min |
-| 14 | Dockerfile-Seguro | Non-root, .dockerignore, template | 15 min |
-| 15 | Docker-Compose | Orquestar app + BD localmente | 15 min |
-| 16 | Trivy | Escaneo de vulnerabilidades en imágenes | 10 min |
-| 17 | Comandos-Docker | Referencia rápida de comandos | 5 min |
+| 14 | Fundamentos | Conceptos, comandos, multi-stage | 20 min |
+| 15 | Dockerfile-Seguro | Non-root, .dockerignore, template | 15 min |
+| 16 | Docker-Compose | Orquestar app + BD localmente | 15 min |
+| 17 | Trivy | Escaneo de vulnerabilidades en imágenes | 10 min |
+| 18 | Comandos-Docker | Referencia rápida de comandos | 5 min |
 
 > **Prerequisito para:** CI/CD.
 
@@ -79,10 +80,10 @@ aliases: [Devsecops]
 
 | # | Nota | QUÉ aprenderás | Tiempo |
 |---|------|---------------|--------|
-| 18 | GitHub-Actions | Workflow, triggers, jobs, steps | 20 min |
-| 19 | SAST | Análisis estático de código | 15 min |
-| 20 | SCA | Escaneo de dependencias NuGet | 15 min |
-| 21 | Secret-Scanning | Gitleaks, pre-commit hooks | 10 min |
+| 19 | GitHub-Actions | Workflow, triggers, jobs, steps | 20 min |
+| 20 | SAST | Análisis estático de código | 15 min |
+| 21 | SCA | Escaneo de dependencias NuGet | 15 min |
+| 22 | Secret-Scanning | Gitleaks, pre-commit hooks | 10 min |
 
 > **Prerequisito para:** IaC.
 
@@ -94,7 +95,7 @@ aliases: [Devsecops]
 
 | # | Nota | QUÉ aprenderás | Tiempo |
 |---|------|---------------|--------|
-| 22 | Terraform | Providers, resources, state, tfsec | 20 min |
+| 23 | Terraform | Providers, resources, state, tfsec | 20 min |
 
 > **Prerequisito para:** Kubernetes.
 
@@ -106,10 +107,10 @@ aliases: [Devsecops]
 
 | # | Nota | QUÉ aprenderás | Tiempo |
 |---|------|---------------|--------|
-| 23 | Fundamentos | Pods, Deployments, Services, Ingress | 20 min |
-| 24 | Security-Context | runAsNonRoot, capabilities, seccomp | 15 min |
-| 25 | Network-Policies | Micro-segmentación, zero trust | 15 min |
-| 26 | Comandos-Kubernetes | Referencia rápida de comandos | 5 min |
+| 24 | Fundamentos | Pods, Deployments, Services, Ingress | 20 min |
+| 25 | Security-Context | runAsNonRoot, capabilities, seccomp | 15 min |
+| 26 | Network-Policies | Micro-segmentación, zero trust | 15 min |
+| 27 | Comandos-Kubernetes | Referencia rápida de comandos | 5 min |
 
 > **Prerequisito para:** Monitoreo.
 
@@ -121,9 +122,9 @@ aliases: [Devsecops]
 
 | # | Nota | QUÉ aprenderás | Tiempo |
 |---|------|---------------|--------|
-| 27 | Structured-Logging | Serilog, JSON logs, niveles | 15 min |
-| 28 | Prometheus | Métricas HTTP, alertas | 15 min |
-| 29 | Grafana | Dashboards, paneles de seguridad | 15 min |
+| 28 | Structured-Logging | Serilog, JSON logs, niveles | 15 min |
+| 29 | Prometheus | Métricas HTTP, alertas | 15 min |
+| 30 | Grafana | Dashboards, paneles de seguridad | 15 min |
 
 ---
 
@@ -133,10 +134,10 @@ aliases: [Devsecops]
 
 | # | Nota | QUÉ aprenderás | Tiempo |
 |---|------|---------------|--------|
-| 30 | SAST-Detallado | Taint analysis, Semgrep, SonarQube | 15 min |
-| 31 | DAST-Detallado | OWASP ZAP, Burp Suite | 15 min |
-| 32 | Comandos-Git | Referencia rápida de comandos | 5 min |
-| 33 | Errores-Comunes | .NET, Docker, K8s, CI/CD | 20 min |
+| 31 | SAST-Detallado | Taint analysis, Semgrep, SonarQube | 15 min |
+| 32 | DAST-Detallado | OWASP ZAP, Burp Suite | 15 min |
+| 33 | Comandos-Git | Referencia rápida de comandos | 5 min |
+| 34 | Errores-Comunes | .NET, Docker, K8s, CI/CD | 20 min |
 
 ---
 
