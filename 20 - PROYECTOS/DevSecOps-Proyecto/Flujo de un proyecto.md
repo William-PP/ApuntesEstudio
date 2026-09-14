@@ -33,10 +33,10 @@ Crear una aplicación funcional aplicando **DevSecOps** de principio a fin, docu
 
 ### Fase -1: Diseño Seguro y Setup
 - [x] Definir tema del proyecto
-- [ ] Threat Modeling (STRIDE)
+- [x] Threat Modeling (STRIDE)
 - [x] Diseñar arquitectura por capas
-- [ ] Configurar repo (.gitignore, secrets, git hooks)
-- [ ] Definir branching strategy
+- [x] Configurar repo (.gitignore, secrets, git hooks)
+- [x] Definir branching strategy
 - [x] Documentar decisiones técnicas
 
 ### Fase 0: Seguridad en Código (Shift Left)

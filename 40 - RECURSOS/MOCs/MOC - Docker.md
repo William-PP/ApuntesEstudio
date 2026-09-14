@@ -18,6 +18,8 @@ aliases: [Docker]
 - [[40 - RECURSOS/Guías & Flujos/Guía - Dockerfile Seguro]] — Non-root, .dockerignore, template
 - [[40 - RECURSOS/Guías & Flujos/Guía - Docker Compose]] — Orquestar app + BD localmente
 - [[40 - RECURSOS/Guías & Flujos/Guía - Trivy]] — Escaneo de vulnerabilidades en imágenes
+- [[40 - RECURSOS/Conceptos/Pi-hole]] — filtro DNS en contenedor (caso práctico de uso)
+- [[40 - RECURSOS/Guías & Flujos/Guía - Pi-hole con Docker]] — aplicación real: Pi-hole como DNS de red
 
 ## Referencia
 - [[MOC - DevSecOps]]

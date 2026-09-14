@@ -82,19 +82,19 @@ tags: [proyecto/gestion-deportiva, devsecops, arquitectura]
 
 > Para el análisis completo de pros/contras de cada tecnología, ver [[20 - PROYECTOS/DevSecOps-Proyecto/03-Decisiones-Técnicas]].
 
-| Capa | Tecnología | Versión |
-|------|-----------|---------|
-| Lenguaje | C# | .NET 10 |
-| Framework | ASP.NET Core Web API | .NET 10 |
-| ORM | Entity Framework Core | 8.0.* |
-| Base de datos | SQL Server | — |
-| Container | Docker + Docker Compose | — |
-| CI/CD | GitHub Actions | — |
-| SAST | SonarCloud | — |
-| SCA | Trivy | — |
-| Secret Scanning | Gitleaks | — |
-| DAST | OWASP ZAP | — |
-| Monitoreo | Prometheus + Grafana | — |
+| Capa            | Tecnología              | Versión |
+| --------------- | ----------------------- | ------- |
+| Lenguaje        | C#                      | .NET 10 |
+| Framework       | ASP.NET Core Web API    | .NET 10 |
+| ORM             | Entity Framework Core   | 8.0.*   |
+| Base de datos   | SQL Server              | —       |
+| Container       | Docker + Docker Compose | —       |
+| CI/CD           | GitHub Actions          | —       |
+| SAST            | SonarCloud              | —       |
+| SCA             | Trivy                   | —       |
+| Secret Scanning | Gitleaks                | —       |
+| DAST            | OWASP ZAP               | —       |
+| Monitoreo       | Prometheus + Grafana    | —       |
 
 ## Dependencias entre proyectos
 

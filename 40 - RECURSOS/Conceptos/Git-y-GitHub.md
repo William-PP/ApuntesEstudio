@@ -33,14 +33,8 @@ Commit 3: "Arreglar bug en autenticación"
 
 ### Comandos esenciales
 
-| Comando | Qué hace |
-|---------|----------|
-| `git init` | Crea un repositorio nuevo |
-| `git add .` | Prepara todos los cambios para commitear |
-| `git commit -m "mensaje"` | Guarda un snapshot con mensaje descriptivo |
-| `git log` | Muestra historial de commits |
-| `git diff` | Compara cambios entre versiones |
-| `git blame archivo` | Muestra quién editó cada línea |
+> [!note] Referencia de comandos
+> La lista completa de comandos (básicos, ramas, deshacer, seguridad) está en la [[40 - RECURSOS/Guías & Flujos/Guía - Comandos Git|Guía - Comandos Git]]. Los conceptos clave: `init` crea el repo, `add` prepara cambios, `commit` guarda el snapshot, `log` muestra historial.
 
 ### Cadena de commits
 

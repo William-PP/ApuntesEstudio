@@ -3,10 +3,10 @@ type: concepto
 state: activa
 priority: alta
 created: 2026-09-04
-updated: 2026-09-04
+updated: 2026-09-05
 related: [MOC - DevSecOps, Testing, MOC - CI-CD]
-tags: [testing, istqb, calidad, qa, ieee, cmmi, sqa, pruebas]
-aliases: [Pruebas de Software, Test de Software, QA, Software Quality Testing]
+tags: [testing, istqb, calidad, qa, ieee, cmmi, sqa, pruebas, tecnicas, ejecucion, herramientas]
+aliases: [Pruebas de Software, Test de Software, QA, Software Quality Testing, Diseño de Pruebas]
 ---
 
 # Pruebas de Software
@@ -57,6 +57,39 @@ La gestión de pruebas contempla un ciclo de **cuatro fases** principales:
 
 ---
 
+## Tipos de Pruebas
+
+El software se divide conceptualmente en una parte **interna** (lógica y programación) y otra **externa** (interfaz y experiencia de usuario). A partir de esto se definen los siguientes tipos de pruebas:
+
+| Tipo | Qué valida | Alcance |
+|------|-----------|---------|
+| **Pruebas Funcionales** | Que el sistema cumpla los requerimientos iniciales acordados con el cliente | Comportamiento externo de la interfaz, flujo de eventos según el rol del usuario, datos ingresados y de salida, e interoperabilidad (comunicación) entre sistemas |
+| **Pruebas No Funcionales** | Aspectos técnicos y de calidad del software | Rendimiento (carga, estrés, tensión, volumen), seguridad, confiabilidad, instalación/configuración, almacenamiento, documentación y planes de respaldo/recuperación |
+
+> [!example] Caso práctico
+> Análisis de **estrés** sobre la plataforma SOFIA Plus para evaluar su tolerancia a la concurrencia de usuarios.
+
+## Estrategia Escalada de Pruebas
+
+Para garantizar el éxito, la evaluación dinámica del sistema debe ir **de lo menor a lo mayor** en cuatro pasos secuenciales:
+
+```
+┌──────────────┐   ┌────────────────┐   ┌───────────────┐   ┌────────────────┐
+│  Unitarias   │──▶│  Integración   │──▶│   Sistema     │──▶│  Aceptación    │
+│  (módulo)    │   │  (módulos +    │   │ (software +   │   │ (certificación │
+│              │   │   interfaces)  │   │   hardware)   │   │  del cliente)  │
+└──────────────┘   └────────────────┘   └───────────────┘   └────────────────┘
+```
+
+| Paso | Qué evalúa |
+|------|-----------|
+| **Pruebas unitarias** | De forma aislada, cada módulo individual del código |
+| **Pruebas de integración** | Cómo se combinan los módulos y cómo operan sus interfaces de comunicación |
+| **Pruebas de sistema** | Que el software totalmente ensamblado con su hardware cumpla los requisitos definidos |
+| **Pruebas de aceptación** | Que el cliente final certifique que el sistema funciona bajo sus expectativas reales |
+
+---
+
 ## Planificación de Pruebas y el "Plan de Pruebas"
 
 La fase de planificación tiene como entregable principal el **Plan de Pruebas**: documento que describe el alcance según el software específico, sus objetivos, el enfoque de evaluación y el análisis de impacto si ocurrieran fallas.
@@ -84,6 +117,89 @@ La fase de planificación tiene como entregable principal el **Plan de Pruebas**
 
 > [!warning] Riesgo típico
 > Los **datos de prueba defectuosos** son un factor común que retrasa el cronograma. Definir instrucciones de suspensión permite detener el proceso de forma controlada ante irregularidades críticas.
+
+---
+
+## Técnicas de Diseño de Pruebas
+
+Las técnicas se agrupan en **cuatro familias** complementarias:
+
+| Familia | Acceso que requiere | Enfoque |
+|---------|--------------------|---------|
+| **Caja Negra** | Ninguno al código | Comportamiento externo: entradas → salidas |
+| **Caja Blanca** | Código fuente + lógica de programación | Estructura interna del código |
+| **Estáticas** | Documentación y código (revisión manual/asistida) | Detección de fallas antes de ejecutar |
+| **Basadas en la Experiencia** | Intuición del evaluador | Lecciones aprendidas de ingenieros expertos |
+
+### A. Caja Negra (pruebas funcionales externas)
+
+No requieren acceso ni conocimiento de la programación interna. Se enfocan en el **procesamiento de entradas y salidas** de datos.
+
+| Sub-técnica | Qué hace |
+|-------------|----------|
+| **Análisis de valor límite** | Prueba los valores máximos y mínimos permitidos |
+| **Partición de equivalencias** | Agrupa los datos en categorías para comprobar que produzcan resultados iguales |
+| **Combinación de parámetros** | Cruza combinaciones de valores de entrada |
+| **Transiciones de cambios de estado** | Verifica el comportamiento ante cambios de estado del sistema |
+| **Rutas del software** | Modela caminos sobre el flujo principal y flujos alternativos |
+
+> [!example] Caso práctico
+> Se utiliza la funcionalidad **"Registrar datos básicos aspirante"** de SOFIA Plus para modelar caminos basados en su flujo principal y sus flujos alternativos.
+
+### B. Caja Blanca (pruebas de estructura interna)
+
+Requieren acceso al **código fuente** y conocimientos técnicos de su lógica. Evalúan la estructura interna.
+
+| Sub-técnica | Qué hace |
+|-------------|----------|
+| **Pruebas de bucles** | Análisis de la estructura y complejidad de las iteraciones |
+| **Caminos independientes** | Identifica rutas lógicas mediante un **diagrama de grafos** (nodos = acciones, arcos = enlaces, regiones delimitadas) para verificar los distintos caminos de ejecución |
+| **Mutaciones** | Modificación deliberada del código para evaluar si el set de pruebas actual detecta la falla |
+| **Pruebas de condición y de flujo de datos** | Validan decisiones lógicas y el recorrido de los datos |
+
+### C. Técnicas estáticas
+
+Revisiones **manuales o asistidas por herramientas** para identificar causas de fallas antes de la ejecución formal. Sirven de complemento a las de caja negra y blanca.
+
+| Técnica | Propósito |
+|---------|-----------|
+| **Management Review** | Toma de decisiones sobre la dirección del proyecto |
+| **Technical Review** | Cumplimiento técnico bajo planes y estándares |
+| **Software Inspection** | Revisión del cumplimiento de especificaciones y normas del software |
+| **Walkthrough** | Análisis guiado para detectar errores u omisiones tempranas |
+| **Auditoría** | Certificación global del proceso y del producto final |
+
+### D. Pruebas basadas en la experiencia
+
+Aprovechan la **intuición de ingenieros expertos** bajo lecciones aprendidas:
+
+| Técnica | Qué es |
+|---------|--------|
+| **Ad Hoc** | Basadas puramente en la intuición del evaluador |
+| **Exploratorias** | Se diseñan y modifican de manera dinámica mientras se navega en el software |
+
+---
+
+## Diseño de Casos de Prueba
+
+Un **Caso de Prueba** es el documento que formaliza los **datos de entrada, las condiciones operativas y el resultado esperado** para determinar si el software funciona según lo requerido.
+
+### Elementos obligatorios
+
+| Elemento | Qué contiene |
+|----------|--------------|
+| **Nombre e Identificador único** | Código descriptivo del caso de prueba |
+| **Descripción y función a probar** | Qué valida y en qué módulo o unidad se sitúa |
+| **Condiciones iniciales** | Requisitos previos o datos necesarios para arrancar la prueba |
+| **Flujo** | Secuencia numerada de pasos necesarios para la ejecución |
+| **Resultado esperado** | Lo que debería ocurrir teóricamente si el sistema funciona bien |
+| **Resultado obtenido** | Comportamiento real del sistema al realizar la prueba |
+| **Estado** | Condición actual: Pendiente, realizada, satisfactoria, fallida |
+| **Configuración requerida** | Ambiente informático de hardware, software o datos de prueba necesarios |
+| **Nombre de quien ejecutó** | Ejecutor de la prueba |
+
+> [!example] Caso práctico
+> Aplicación real de esta plantilla evaluando el escenario del **"intento de registro con un usuario previamente registrado"** dentro del módulo de admisiones de SOFIA Plus.
 
 ---
 
@@ -171,6 +287,102 @@ Herramienta de calidad orientada a **auditar el desarrollo** para garantizar la 
 
 ---
 
+## Gestión y Control de la Ejecución de Pruebas
+
+La ejecución de pruebas requiere obligatoriamente una **planeación previa** de su alcance, el equipo responsable y el tiempo asignado. Durante este proceso, los casos de prueba diseñados previamente se convierten en los **documentos operativos** que se deben diligenciar en la práctica.
+
+### Alistamiento de Pruebas
+
+Antes de iniciar, el equipo debe asegurar la disponibilidad y configuración de los siguientes elementos estratégicos:
+
+| Elemento | Qué incluye |
+|----------|-------------|
+| **Datos de prueba** | Preparar y configurar en el sistema todos los datos que se ingresarán o visualizarán (generados, guardados o aleatorios — estos últimos ideales para pruebas de carga) |
+| **Software** | Configurar servidores, máquinas virtuales, servidores web, simuladores e instancias de bases de datos exclusivas para pruebas |
+| **Herramientas de soporte** | Aplicaciones informáticas que asistirán el proceso, listas y configuradas |
+| **Hardware** | Componentes físicos necesarios: disco duro, procesador, memoria y dispositivos multimedia |
+| **Cronograma** | Detallar las ejecuciones basándose en los casos de prueba identificados y las técnicas seleccionadas |
+| **Equipo de personas** | Personal que domine técnicamente el software y conozca los requerimientos funcionales del negocio, para evitar sesgos por expectativas ajenas al alcance inicial |
+
+> [!example] Caso práctico
+> El equipo que validó el sistema **SOFIA Plus del SENA** requirió dominio experto en los procesos académicos de la institución.
+
+### Recomendaciones y Ciclo de Vida de los Errores
+
+- **Pruebas exploratorias previas**: navegación inicial para que el equipo se familiarice con la interfaz antes de la ejecución sistemática.
+- **Segunda validación**: re-evaluar los errores detectados cuando la funcionalidad afectada se reutilice en múltiples secciones del software.
+- **Cierre del ciclo**: inicia desde la primera versión y puede requerir múltiples iteraciones. Un ciclo se cierra formalmente cuando se ejecutan todas las pruebas planeadas y se solucionan las no conformidades.
+
+**Clasificación de No Conformidades** (jerárquica):
+
+| Tipo | Descripción |
+|------|-------------|
+| **Fatales** | Errores críticos que bloquean el sistema y no permiten continuar la prueba |
+| **Mejoras** | Propuestas de optimización no contempladas inicialmente en los requerimientos |
+| **Funcionales** | Desviaciones donde no se obtiene el resultado esperado en las validaciones |
+| **Visualización** | Errores estéticos, ortográficos, de alineación o de incumplimiento de estándares de diagramación |
+
+---
+
+## Documentación de la Ejecución
+
+El registro formal de los resultados es indispensable para **certificar el estado del sistema** y orientar los ajustes. Dos reportes esenciales:
+
+### Informe de Incidente de Pruebas
+
+Recopila de forma redactada y precisa **cada fallo detectado**:
+
+| Dato | Contenido |
+|------|-----------|
+| **Encabezado** | Fecha de la prueba y nombre del evaluador |
+| **Caso de prueba** | Identificador, nombre y estado (pasó, falló o no se ejecutó) |
+| **Ubicación del incidente** | Unidad, módulo, API o funcionalidad |
+| **Pasos ("Cómo")** | Secuencia detallada para replicar el error |
+| **Condiciones** | Datos de entrada y dispositivos de hardware utilizados |
+| **Hallazgo** | Descripción del error acompañado de una evidencia visual (imagen o captura) |
+| **Resultado esperado** | El comportamiento que el sistema debió tener teóricamente |
+
+### Resumen de Pruebas
+
+Reporte de gestión que consolida **métricas clave** para la toma de decisiones: porcentaje de avance, porcentaje de no conformidades detectadas y porcentaje de pruebas aceptadas.
+
+---
+
+## Herramientas de Soporte
+
+Programas que permiten **automatizar y agilizar** tareas dentro del proceso de pruebas. Se clasifican en tres tipos:
+
+| Tipo | Función |
+|------|---------|
+| **Gestión de pruebas** | Organizar actividades, asignar responsabilidades, registrar incidentes, trazar avances y generar gráficos gerenciales |
+| **Pruebas funcionales** | Registrar casos de prueba y simular eventos de usuario para verificar flujos funcionales del sistema |
+| **Pruebas de carga y rendimiento** | Simular accesos masivos y uso concurrente para medir tiempos de respuesta y la capacidad límite de servidores e infraestructura |
+
+### Ejemplos de herramientas: uso libre vs comercial
+
+| Categoría | Uso Libre (gratuitas) | Comerciales (pagas) |
+|-----------|----------------------|---------------------|
+| **Gestión** | Bugzilla Testopia, qaManager, qaBook, RTH, Salome-tmf, Squash TM, TestLink, Testitool, Data Generator | HP Quality Center/ALM, QA Complete, qaBook, PractiTest, SpiraTest, TestLog, Zephyr |
+| **Funcionales** | Selenium, SoapUI, Watir, WatiN, Canoo Webtest, WET, WebInject | QuickTest Pro, Rational Robot, Sahi, SoapTest, Test Complete, QA Wizard, Squish |
+| **Carga** | Funkload, FWPTT, loadUI, JMeter | HP LoadRunner, LoadStorm, Neo Load, WebLOAD Professional, Load Impact |
+
+### Herramientas destacadas
+
+| Herramienta | Licencia | Qué hace |
+|-------------|----------|----------|
+| **Bugzilla / Testopia** | Gratuita | Gestión y seguimiento de errores: prioridades, estimación de tiempos, responsables, evidencias y notificaciones por correo. Testopia administra además los casos de prueba |
+| **Generatedata** | Gratuita | PHP/JS/MySQL; genera aleatoriamente grandes volúmenes de datos (hasta miles de filas) en HTML, Excel, XML, CSV o SQL |
+| **SoapTest** | Comercial | Pruebas de integración para APIs, Web Services y entornos en la nube |
+| **WebInject** | Gratuita | Perl/XML; automatiza pruebas de servicios web y entornos de navegación |
+| **WebLoad** | Comercial | JavaScript; simula acceso concurrente y genera reportes analíticos de rendimiento de BD, servidores y sitios web |
+| **JMeter** | Gratuita | Carga y rendimiento: volumen de hilos de usuario, hora exacta de ejecución y respuestas mediante gráficos |
+| **QA Complete** | Comercial | Plataforma que unifica gestión de casos, entornos, defectos, automatizaciones y planeación |
+| **Testitool / qaBook** | Gratuita / mixta | Testitool (PHP) crea e instancia planes de prueba; qaBook ofrece versiones gratuitas y comerciales |
+| **WET** | Gratuita | Automatiza interacciones web (clics en botones, ingreso de campos, accesos de enlaces) |
+| **Test Studio** | Comercial | Cubre todo el espectro: automatización de interfaces, componentes, integraciones, pruebas móviles y de escritorio + gestión del ciclo completo |
+
+---
+
 ## Relación con DevSecOps
 
 Las pruebas son prerequisito del pipeline DevSecOps: la fase de testing automatizado (unit + integration) habilita las etapas de SAST/SCA dentro del CI/CD. La independencia del equipo y la documentación estandarizada (IEEE-829) se conectan directamente con los requisitos de [[Testing]] en el proyecto [[Flujo de un proyecto]].
@@ -181,7 +393,8 @@ Las pruebas son prerequisito del pipeline DevSecOps: la fase de testing automati
 
 - [[MOC - DevSecOps]] — ruta de estudio; el testing es Nivel 3 prerequisito para CI/CD
 - [[MOC - CI-CD]] — donde las pruebas automatizadas se ejecutan en el pipeline
+- [[MOC - Pruebas de Software]] — índice temático de testing y QA
 - [[SAST]] — análisis estático, complementa las pruebas dinámicas
 - [[Testing]] — nota de testing automatizado del proyecto
 
-#testing #istqb #calidad #qa #ieee #cmmi #sqa #pruebas
+#testing #istqb #calidad #qa #ieee #cmmi #sqa #pruebas #tecnicas #caja-negra #caja-blanca #casos-de-prueba #ejecucion #incidentes #resumen-de-pruebas #herramientas

@@ -32,14 +32,14 @@ Crear una suite de tests que verifique la corrección y seguridad de la aplicaci
 
 ## Herramientas
 
-| Herramienta | ¿Qué hace? | ¿Para qué sirve? | ¿Cuándo la usamos? |
-|------------|------------|------------------|--------------------|
-| **xUnit** | Framework de testing de .NET | Correr y agrupar los tests; con `[Fact]` y `[Theory]` marca qué métodos son pruebas | En TODOS los tests (unit, integration, security) |
-| **Moq** | Crea "dobles" falsos de interfaces | Testear una clase AISLADA sin depender de sus dependencias reales (BD, servicios externos) | Solo en Unit Tests: `Mock<IUserRepository>()` que responde lo que yo quiero |
-| **FluentAssertions** | Assertions con sintaxis legible | Reemplaza `Assert.Equal(x, y)` por `result.Should().Be(x)` — más fácil de leer y mensajes de error más claros | En todos los tests, para el paso Assert |
-| **Testcontainers** | Levanta contenedores Docker reales dentro de los tests | Correr los tests contra un SQL Server REAL e idéntico al de producción, sin usar tu BD local | En Integration Tests y Security Tests |
-| **WebApplicationFactory** | Arranca la API completa en memoria dentro del test | Hacer requests HTTP reales a la API (controllers, middleware, JWT, CORS) sin levantarla a mano | En Integration Tests: `_client.GetAsync("/api/team")` |
-| **coverlet** | Mide cuánto código está cubierto por tests | Saber si te quedaste sin probar partes críticas; meta >70% | Con `dotnet test` y reportgenerator |
+| Herramienta               | ¿Qué hace?                                             | ¿Para qué sirve?                                                                                              | ¿Cuándo la usamos?                                                          |
+| ------------------------- | ------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------- |
+| **xUnit**                 | Framework de testing de .NET                           | Correr y agrupar los tests; con `[Fact]` y `[Theory]` marca qué métodos son pruebas                           | En TODOS los tests (unit, integration, security)                            |
+| **Moq**                   | Crea "dobles" falsos de interfaces                     | Testear una clase AISLADA sin depender de sus dependencias reales (BD, servicios externos)                    | Solo en Unit Tests: `Mock<IUserRepository>()` que responde lo que yo quiero |
+| **FluentAssertions**      | Assertions con sintaxis legible                        | Reemplaza `Assert.Equal(x, y)` por `result.Should().Be(x)` — más fácil de leer y mensajes de error más claros | En todos los tests, para el paso Assert                                     |
+| **Testcontainers**        | Levanta contenedores Docker reales dentro de los tests | Correr los tests contra un SQL Server REAL e idéntico al de producción, sin usar tu BD local                  | En Integration Tests y Security Tests                                       |
+| **WebApplicationFactory** | Arranca la API completa en memoria dentro del test     | Hacer requests HTTP reales a la API (controllers, middleware, JWT, CORS) sin levantarla a mano                | En Integration Tests: `_client.GetAsync("/api/team")`                       |
+| **coverlet**              | Mide cuánto código está cubierto por tests             | Saber si te quedaste sin probar partes críticas; meta >70%                                                    | Con `dotnet test` y reportgenerator                                         |
 
 > [!info] ¿Por qué tantas herramientas?
 > Cada una cubre un nivel distinto de la pirámide. Moq aísla una clase, WebApplicationFactory prueba la API completa, y Testcontainers garantiza que la BD sea la misma que en producción. No son redundantes — son capas.

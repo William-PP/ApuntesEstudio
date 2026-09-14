@@ -68,9 +68,9 @@ La seguridad moderna del software se divide en varias áreas especializadas. Cad
 - Path Traversal
 - Credenciales embebidas (hardcoded secrets)
 
-**Herramientas:** [[40 - RECURSOS/Conceptos/SAST]]|Semgrep]], SonarQube, SonarLint
+**Herramientas:** [[40 - RECURSOS/Conceptos/SAST|Semgrep]], SonarQube, SonarLint
 
-**Ver más:** [[40 - RECURSOS/Conceptos/SAST-Detallado]]
+**Ver más:** [[40 - RECURSOS/Conceptos/SAST]]
 
 ---
 
@@ -87,7 +87,7 @@ La seguridad moderna del software se divide en varias áreas especializadas. Cad
 
 **Herramientas:** OWASP Dependency-Check, Snyk, Trivy
 
-**Ver más:** [[40 - RECURSOS/Conceptos/SCA]]|SCA Detallado]]
+**Ver más:** [[40 - RECURSOS/Conceptos/SCA|SCA Detallado]]
 
 ---
 

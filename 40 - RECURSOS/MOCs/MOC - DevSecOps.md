@@ -81,7 +81,7 @@ aliases: [Devsecops]
 | # | Nota | QUÉ aprenderás | Tiempo |
 |---|------|---------------|--------|
 | 19 | GitHub-Actions | Workflow, triggers, jobs, steps | 20 min |
-| 20 | SAST | Análisis estático de código | 15 min |
+| 20 | SAST | AST, taint analysis, Semgrep, SonarQube, TreatWarningsAsErrors | 15 min |
 | 21 | SCA | Escaneo de dependencias NuGet | 15 min |
 | 22 | Secret-Scanning | Gitleaks, pre-commit hooks | 10 min |
 
@@ -134,10 +134,9 @@ aliases: [Devsecops]
 
 | # | Nota | QUÉ aprenderás | Tiempo |
 |---|------|---------------|--------|
-| 31 | SAST-Detallado | Taint analysis, Semgrep, SonarQube | 15 min |
-| 32 | DAST-Detallado | OWASP ZAP, Burp Suite | 15 min |
-| 33 | Comandos-Git | Referencia rápida de comandos | 5 min |
-| 34 | Errores-Comunes | .NET, Docker, K8s, CI/CD | 20 min |
+| 31 | DAST-Detallado | OWASP ZAP, Burp Suite | 15 min |
+| 32 | Comandos-Git | Referencia rápida de comandos | 5 min |
+| 33 | Errores-Comunes | .NET, Docker, K8s, CI/CD | 20 min |
 
 ---
 
