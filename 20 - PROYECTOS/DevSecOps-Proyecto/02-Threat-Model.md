@@ -123,8 +123,8 @@ Aunque no existe un estándar industrial único, la mayoría de los enfoques inc
 > Esta sección se completa cuando se diseñe la API. Ver [[20 - PROYECTOS/DevSecOps-Proyecto/GestionDeportiva-Diccionario-Datos]] §13 para los endpoints identificados.
 
 | Método | Ruta | Autenticado? | Rate Limited? | Rol requerido |
-|--------|------|-------------|---------------|---------------|
-| — | — | — | — | — |
+| ------ | ---- | ------------ | ------------- | ------------- |
+| —      | —    | —            | —             | —             |
 
 ### Datos en tránsito
 - Protocolo: HTTPS (TLS 1.2+)
@@ -143,16 +143,16 @@ Aunque no existe un estándar industrial único, la mayoría de los enfoques inc
 
 ## Matriz de Riesgos
 
-| # | Amenaza | Probabilidad | Impacto | Riesgo | Mitigación |
-|---|---------|-------------|---------|--------|------------|
-| 1 | Fuga de `numero_documento` vía API | Alta | Alto | **Crítico** | Nunca exponerlo en respuestas; cifrado en reposo |
-| 2 | Adulteración de `Resultado.medalla` | Media | Alto | **Alto** | Audit log + restricción de rol |
-| 3 | PII en texto plano en `Auditoria` | Alta | Medio | **Alto** | Corregir trigger; enmascarar PII |
-| 4 | Brute force en login | Alta | Medio | **Alto** | Rate limiting + account lockout |
-| 5 | SQL Injection | Baja | Crítico | **Alto** | EF Core parameterized queries + FluentValidation |
-| 6 | Inscripciones duplicadas (bug de NULL) | Alta | Bajo | **Medio** | Corregir `UQ_Inscripcion_Unica` |
-| 7 | Stack traces expuestos | Media | Medio | **Medio** | Manejo de excepciones global |
-| 8 | DoS vía endpoints sin rate limiting | Media | Medio | **Medio** | Rate limiting en todos los endpoints de escritura |
+| #   | Amenaza                                | Probabilidad | Impacto | Riesgo      | Mitigación                                        |
+| --- | -------------------------------------- | ------------ | ------- | ----------- | ------------------------------------------------- |
+| 1   | Fuga de `numero_documento` vía API     | Alta         | Alto    | **Crítico** | Nunca exponerlo en respuestas; cifrado en reposo  |
+| 2   | Adulteración de `Resultado.medalla`    | Media        | Alto    | **Alto**    | Audit log + restricción de rol                    |
+| 3   | PII en texto plano en `Auditoria`      | Alta         | Medio   | **Alto**    | Corregir trigger; enmascarar PII                  |
+| 4   | Brute force en login                   | Alta         | Medio   | **Alto**    | Rate limiting + account lockout                   |
+| 5   | SQL Injection                          | Baja         | Crítico | **Alto**    | EF Core parameterized queries + FluentValidation  |
+| 6   | Inscripciones duplicadas (bug de NULL) | Alta         | Bajo    | **Medio**   | Corregir `UQ_Inscripcion_Unica`                   |
+| 7   | Stack traces expuestos                 | Media        | Medio   | **Medio**   | Manejo de excepciones global                      |
+| 8   | DoS vía endpoints sin rate limiting    | Media        | Medio   | **Medio**   | Rate limiting en todos los endpoints de escritura |
 
 ---
 
