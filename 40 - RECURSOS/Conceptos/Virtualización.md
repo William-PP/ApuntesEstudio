@@ -3,7 +3,7 @@ type: concepto
 state: activa
 priority: alta
 created: 2026-09-13
-updated: 2026-09-13
+updated: 2026-09-14
 related: [MOC - Virtualización, Guía - Instalación Virtualización]
 tags: [virtualización, vm, hipervisor, kvm, qemu, libvirt, virsh, virt-manager, linux, lvm]
 aliases: [Virtualización, Máquinas Virtuales, Hipervisor, Stack Virtualización Linux, KVM/QEMU]
@@ -215,26 +215,198 @@ qemu-system-x86_64 --version
 | SSH desde host | ✅ Sí | ❌ No |
 | Uso | **Homelab de verdad (recomendado)** | Pruebas rápidas |
 
+### Gestión del servicio `libvirtd` (systemctl)
+
+**Ciclo de vida del servicio:**
+
+```bash
+sudo systemctl start libvirtd       # iniciar
+sudo systemctl stop libvirtd        # detener
+sudo systemctl restart libvirtd     # reiniciar
+sudo systemctl reload libvirtd      # recargar configuración sin detener
+sudo systemctl enable --now libvirtd  # habilitar + iniciar en un comando
+sudo systemctl enable libvirtd      # inicio automático
+sudo systemctl disable libvirtd     # quitar inicio automático
+```
+
+**Verificar estado:**
+
+```bash
+sudo systemctl status libvirtd      # estado actual (active / running)
+sudo systemctl is-active libvirtd   # solo "active"/"inactive"
+sudo systemctl is-enabled libvirtd  # "enabled"/"disabled"
+sudo journalctl -u libvirtd -n 50   # últimos logs
+sudo journalctl -u libvirtd -f      # logs en tiempo real
+```
+
+**Diagnóstico rápido:**
+
+```bash
+sudo systemctl show libvirtd        # estado detallado (config efectiva)
+ps aux | grep libvirtd              # confirmar proceso corriendo
+libvirtd --version                  # versión del daemon
+virsh -c qemu:///system list        # probar conexión al socket local
+```
+
+> [!bug] Error "Cannot connect to libvirt"
+> `sudo systemctl restart libvirtd` y después `newgrp libvirt` (o cerrar/reabrir sesión).
+
+**Permisos para usar libvirt sin sudo:**
+
+```bash
+sudo usermod -aG libvirt $USER
+sudo usermod -aG kvm $USER
+newgrp libvirt
+newgrp kvm
+id    # verificar pertenencia a los grupos
+```
+
 ### virsh – Virtual Shell
 
 **Qué es:** CLI para controlar libvirt (viene en `libvirt-clients`). Ejecutable: `/usr/bin/virsh`.
 
+**Listar e información:**
+
 ```bash
-virsh list --all                    # Ver todas las VMs
-virsh start nombre-vm               # Encender
-virsh shutdown nombre-vm            # Apagar ordenado
-virsh destroy nombre-vm             # Forzar apagado (peligroso)
-virsh undefine nombre-vm --remove-all-storage   # Eliminar VM + discos
-virsh dominfo nombre-vm             # Información detallada
-virsh domstate nombre-vm            # Estado actual
-virsh edit nombre-vm                # Editar config (XML)
-virsh dumpxml nombre-vm > vm.xml    # Exportar configuración
-virsh console nombre-vm             # Consola (salir: Ctrl + ])
-virsh net-list                      # Redes virtuales
-virsh pool-list                     # Storage pools
-virsh domstats nombre-vm            # Recursos en tiempo real
+virsh list                          # solo VMs activas
+virsh list --all                    # activas e inactivas
+virsh list --all --state-running    # filtro: corriendo
+virsh list --all --state-shut-off   # filtro: apagadas
+virsh list --all --shutoff          # atajo para apagadas
+virsh list --all --running          # atajo para activas
+virsh list --all --paused           # atajo para pausadas
+virsh dominfo nombre-vm             # información detallada
+virsh domstate nombre-vm            # estado actual
+virsh domstats nombre-vm            # recursos en tiempo real
+```
+
+**Crear VMs:**
+
+```bash
+virsh define archivo-definicion.xml        # registrar VM desde XML
+virsh create archivo.xml                   # crear y arrancar desde XML
+virt-install --name nombre-vm \
+  --memory 2048 \
+  --vcpus 2 \
+  --disk size=20,format=qcow2 \
+  --cdrom /ruta/a/iso/ubuntu.iso \
+  --os-variant ubuntu22.04 \
+  --network default                        # asistente completo
+```
+
+**Iniciar, pausar y detener:**
+
+```bash
+virsh start nombre-vm               # encender
+virsh shutdown nombre-vm            # apagado ordenado (graceful)
+virsh reboot nombre-vm              # reiniciar
+virsh destroy nombre-vm             # forzar apagado (peligroso)
+virsh suspend nombre-vm             # pausar sin apagar
+virsh resume nombre-vm              # reanudar pausada
+```
+
+**Eliminar:**
+
+```bash
+virsh undefine nombre-vm                        # quitar definición (conserva disco)
+virsh undefine nombre-vm --remove-all-storage   # quitar definición + discos
+virsh undefine nombre-vm --snapshots-metadata   # quitar definición + snapshots
+```
+
+**Configuración y consola:**
+
+```bash
+virsh dumpxml nombre-vm > vm.xml    # exportar configuración
+virsh edit nombre-vm                # editar XML en vivo
+virsh domiflist nombre-vm           # interfaces de red de la VM
+virsh domblklist nombre-vm          # discos de la VM
+virsh console nombre-vm             # consola (salir: Ctrl + ])
+virsh domdisplay nombre-vm          # información de display/gráficos
+virsh vncdisplay nombre-vm          # puerto VNC (típicamente 5900+)
 virsh setmem nombre-vm 4194304      # RAM en vivo (KB) — algunos cambios exigen apagar
 virsh setvcpus nombre-vm 4          # CPUs en vivo
+```
+
+**Snapshots:**
+
+```bash
+virsh snapshot-create-as nombre-vm snapshot-name   # crear
+virsh snapshot-list nombre-vm                      # listar
+virsh snapshot-revert nombre-vm snapshot-name      # revertir
+virsh snapshot-delete nombre-vm snapshot-name      # eliminar
+```
+
+**Redes:**
+
+```bash
+virsh net-list --all            # listar redes (activas e inactivas)
+virsh net-info nombre-red       # información de una red
+virsh net-dumpxml nombre-red    # configuración XML de una red
+virsh net-start nombre-red      # iniciar red
+virsh net-destroy nombre-red    # detener red
+virsh net-define archivo-red.xml  # registrar red desde XML
+```
+
+**Pools de almacenamiento:**
+
+```bash
+virsh pool-list --all           # listar pools
+virsh pool-info nombre-pool     # información del pool
+virsh pool-dumpxml nombre-pool  # ruta/configuración del pool
+virsh pool-create-as nombre-pool dir --target /ruta/a/pool   # crear pool directorio
+virsh pool-start nombre-pool    # iniciar pool
+virsh pool-autostart nombre-pool  # arranque automático
+virsh pool-refresh nombre-pool  # refrescar contenido
+virsh vol-list nombre-pool      # listar volúmenes/ discos del pool
+virsh vol-create-as nombre-pool nombre-volumen 20G --format qcow2   # crear disco
+virsh vol-info /ruta/al/volumen.qcow2   # info de un volumen
+virsh vol-delete /ruta/completa/volumen.qcow2  # eliminar volumen
+```
+
+**Tips útiles (conexión remota y eventos):**
+
+```bash
+virsh -c qemu+ssh://usuario@host/system list     # libvirt remoto vía SSH
+virsh -c qemu:///system                          # sistema local (requiere sudo)
+virsh -c qemu:///session                         # sesión de usuario (sin sudo)
+virsh -c qemu+tcp://host:16509                   # remoto vía TCP
+virsh event --all --loop                         # eventos del hipervisor en vivo
+cat /etc/libvirt/libvirtd.conf                   # configuración del daemon
+```
+
+### Flujo típico completo
+
+```bash
+# 1. Verificar que libvirtd esté activo
+sudo systemctl status libvirtd
+
+# 2. Listar VMs existentes
+virsh list --all
+
+# 3. Crear una VM (ejemplo: Ubuntu)
+virt-install --name ubuntu-server \
+  --memory 2048 \
+  --vcpus 2 \
+  --disk size=20,format=qcow2 \
+  --cdrom /ruta/a/ubuntu-22.04.iso \
+  --network default \
+  --os-variant ubuntu22.04
+
+# 4. Ver estado
+virsh dominfo ubuntu-server
+
+# 5. Conectar a consola
+virsh console ubuntu-server
+
+# 6. Pausar / reanudar
+virsh suspend ubuntu-server
+virsh resume ubuntu-server
+
+# 7. Apagar gracefully
+virsh shutdown ubuntu-server
+
+# 8. Eliminar (definición + discos)
+virsh undefine ubuntu-server --remove-all-storage
 ```
 
 ### virt-install – Creación de VMs
